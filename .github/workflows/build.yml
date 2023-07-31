@@ -1,6 +1,7 @@
 name: build
 
 on:
+  workflow_call:
  
 jobs:
   build:
@@ -14,5 +15,5 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
+          echo Add other actions to buil,
           echo test, and deploy your project.
