@@ -1,4 +1,4 @@
-name: build-push
+name: promote
 
 on:
   push:
