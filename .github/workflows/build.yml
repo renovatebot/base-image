@@ -32,11 +32,14 @@ jobs:
         uses: docker/metadata-action@v4.6.0
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}.{{patch}}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4.1.1
         with:
           context: .
           push: false
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
