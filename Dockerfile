@@ -15,4 +15,4 @@ RUN install-tool node v18.17.1
 RUN install-tool corepack 0.20.0
 
 # renovate: datasource=github-releases packageName=moby/moby
-RUN install-tool docker v24.0.5
+RUN install-tool docker v24.0.6
