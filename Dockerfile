@@ -1,4 +1,4 @@
-FROM ghcr.io/containerbase/base:9.20.13@sha256:9d5c018646811190c6eae482ac7d8be90f3817378903f57b3fe6d9616e7fe8f4 AS base
+FROM ghcr.io/containerbase/base:9.23.0@sha256:2dab1eb006d51d34528c4e5b059b64cea1962c60d33ead97ad65219625b464a7 AS base
 
 LABEL name="base-image"
 LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image" \
