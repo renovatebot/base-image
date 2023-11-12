@@ -12,7 +12,7 @@ RUN prepare-tool all
 RUN install-tool node v18.18.2
 
 # renovate: datasource=npm
-RUN install-tool corepack 0.22.0
+RUN install-tool corepack 0.23.0
 
 # renovate: datasource=github-releases packageName=moby/moby
 RUN install-tool docker v24.0.7
