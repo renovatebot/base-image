@@ -9,7 +9,7 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image
 RUN prepare-tool all
 
 # renovate: datasource=node
-RUN install-tool node v18.18.2
+RUN install-tool node v18.19.0
 
 # renovate: datasource=npm
 RUN install-tool corepack 0.23.0
