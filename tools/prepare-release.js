@@ -20,7 +20,6 @@ class PrepareCommand extends Command {
 
     process.env.TAG = release;
     process.env.BASE_IMAGE_VERSION = release;
-    process.env.BASE_IMAGE_REVISION = gitSha;
 
     r = shell.exec(
       'docker buildx bake --set settings.platform=linux/amd64,linux/arm64',

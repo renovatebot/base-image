@@ -10,7 +10,8 @@ ARG APT_HTTP_PROXY
 LABEL name="renovate/base-image"
 LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image" \
   org.opencontainers.image.url="https://renovatebot.com" \
-  org.opencontainers.image.licenses="MIT"
+  org.opencontainers.image.licenses="MIT" \
+  org.label-schema.vcs-url="https://github.com/renovatebot/base-image"
 
 # renovate: datasource=containerbase/node-prebuild versioning=node
 RUN install-tool node v18.19.0
@@ -116,9 +117,8 @@ RUN install-tool bazelisk v1.19.0
 FROM ${BASE_IMAGE_TYPE}-base
 
 ARG BASE_IMAGE_VERSION
-ARG BASE_IMAGE_REVISION
 
 LABEL \
   org.opencontainers.image.version="${BASE_IMAGE_VERSION}" \
-  org.opencontainers.image.revision="${BASE_IMAGE_REVISION}"
+  org.label-schema.version="${BASE_IMAGE_VERSION}"
 

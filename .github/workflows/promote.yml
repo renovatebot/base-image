@@ -21,8 +21,7 @@ env:
   FILE: base-image
   BUILDKIT_PROGRESS: plain
   BUILDX_NO_DEFAULT_LOAD: 1
-  BASE_IMAGE_VERSION: ${{ github.ref_name }}
-  BASE_IMAGE_REVISION: ${{ github.sha }}
+  BASE_IMAGE_VERSION: ${{ github.ref_name }}-${{ github.sha }}
   APT_HTTP_PROXY: http://172.17.0.1:8000
 
 jobs:

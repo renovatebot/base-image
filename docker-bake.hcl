@@ -10,9 +10,6 @@ variable "TAG" {
 variable "BASE_IMAGE_VERSION" {
   default = "unknown"
 }
-variable "BASE_IMAGE_REVISION" {
-  default = "unknown"
-}
 
 variable "APT_HTTP_PROXY" {
   default = ""
@@ -49,7 +46,6 @@ target "settings" {
     APT_HTTP_PROXY      = "${APT_HTTP_PROXY}"
     CONTAINERBASE_DEBUG = "${CONTAINERBASE_DEBUG}"
     BASE_IMAGE_VERSION  = "${BASE_IMAGE_VERSION}"
-    BASE_IMAGE_REVISION = "${BASE_IMAGE_REVISION}"
     GITHUB_TOKEN        = "${GITHUB_TOKEN}"
   }
   tags = [
