@@ -1,5 +1,5 @@
 {
-  "name": "base-image",
+  "name": "@renovatebot/base-image",
   "version": "0.0.0-semantic-release",
   "private": true,
   "repository": {
@@ -12,22 +12,33 @@
     "Michael Kriese <michael.kriese@visualon.de>",
     "Liora Milbaum <liora@lmb.co.il>"
   ],
+  "type": "module",
   "scripts": {
     "lint": "run-s prettier",
     "prepare": "husky install",
     "prettier": "prettier --cache --check --ignore-unknown '**/*.*'",
-    "prettier-fix": "prettier --cache --write --ignore-unknown '**/*.*'"
+    "prettier-fix": "prettier --cache --write --ignore-unknown '**/*.*'",
+    "prepare:proxy": "node tools/prepare-proxy.js",
+    "release:prepare": "node tools/prepare-release.js",
+    "release:publish": "node tools/publish-release.js"
   },
   "devDependencies": {
+    "@semantic-release/exec": "6.0.3",
+    "@types/node": "20.10.1",
+    "@types/shelljs": "0.8.15",
+    "clipanion": "4.0.0-rc.2",
+    "conventional-changelog-conventionalcommits": "7.0.2",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
     "npm-run-all": "4.1.5",
     "prettier": "^3.1.0",
-    "prettier-plugin-packagejson": "^2.4.6"
+    "prettier-plugin-packagejson": "^2.4.6",
+    "semantic-release": "22.0.8",
+    "shelljs": "0.8.5"
   },
   "packageManager": "pnpm@8.10.5",
   "engines": {
-    "node": "^18.12.0 || >=20.0.0",
+    "node": "^18.12.0 || >=20.9.0",
     "pnpm": "^8.0.0"
   }
 }

@@ -16,12 +16,13 @@ permissions:
   contents: read
 
 env:
-  DRY_RUN: ${{ github.ref_name != 'main' }}
+  DRY_RUN: ${{ github.ref_name != 'main' && true }}
   OWNER: ${{ github.repository_owner }}
-  FILE: base
+  FILE: base-image
   BUILDKIT_PROGRESS: plain
   BUILDX_NO_DEFAULT_LOAD: 1
-  CONTAINERBASE_VERSION: ${{ github.sha }}
+  BASE_IMAGE_VERSION: ${{ github.ref_name }}
+  BASE_IMAGE_REVISION: ${{ github.sha }}
   APT_HTTP_PROXY: http://172.17.0.1:8000
 
 jobs:
@@ -61,16 +62,11 @@ jobs:
       - name: 📥 Setup Node.js
         uses: ./.github/actions/setup-node
 
-      #    cache: yarn
+      - name: prepare apt proxy
+        run: sudo pnpm prepare:proxy
 
-      # - name: Installing dependencies
-      #   run: yarn install
-
-      # - name: prepare apt proxy
-      #   run: sudo yarn prepare:proxy
-
-      # - name: semantic-release
-      #   if: github.event_name == 'push'
-      #   run: yarn semantic-release --dry-run ${{env.DRY_RUN}} --ci ${{env.DRY_RUN != 'true'}}
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: semantic-release
+        if: github.event_name == 'push'
+        run: pnpm semantic-release --dry-run ${{env.DRY_RUN}} --ci ${{env.DRY_RUN != 'true'}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
