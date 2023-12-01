@@ -41,7 +41,7 @@ RUN install-tool gradle 8.5
 # renovate: datasource=github-releases packageName=containerbase/erlang-prebuild versioning=docker
 RUN install-tool erlang 26.1.2.0
 
-# renovate: datasource=docker
+# renovate: datasource=github-releases packageName=elixir-lang/elixir
 RUN install-tool elixir 1.15.7
 
 # renovate: datasource=github-releases packageName=containerbase/php-prebuild
