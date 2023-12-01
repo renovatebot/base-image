@@ -1,4 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>renovatebot/.github"]
+  "extends": [
+    "github>renovatebot/.github",
+    "github>renovatebot/.github//merge-queue.json"
+  ]
 }
