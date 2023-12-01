@@ -3,5 +3,24 @@
   "extends": [
     "github>renovatebot/.github",
     "github>renovatebot/.github//merge-queue.json"
+  ],
+  "packageRules": [
+    {
+      "description": "Use `ci` semantic commit scope for ci deps",
+      "matchFileNames": [".github/{actions/**,workflows}/*.yml"],
+      "semanticCommitType": "ci",
+      "additionalBranchPrefix": "ci-"
+    },
+    {
+      "description": "Use `build` semantic commit scope for build deps",
+      "matchDepNames": ["node"],
+      "semanticCommitType": "build",
+      "additionalBranchPrefix": "build-"
+    },
+    {
+      "description": "Use `fix` semantic commit scope for docker image deps",
+      "matchFileNames": ["Dockerfile"],
+      "semanticCommitType": "fix"
+    }
   ]
 }
