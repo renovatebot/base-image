@@ -15,7 +15,19 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image
 # renovate: datasource=containerbase/node-prebuild versioning=node
 RUN install-tool node v18.19.0
 
-RUN corepack enable
+# renovate: datasource=npm depName=pnpm
+ARG PNPM_VERSION=8.10.5
+
+# renovate: datasource=npm depName=yarn
+ARG YARN_VERSION=1.22.21
+
+# enable corepack and precache yarn and pnpm
+RUN set -ex; \
+  corepack enable; \
+  corepack install --global pnpm@${PNPM_VERSION} yarn@${YARN_VERSION}; \
+  pnpm --version; \
+  yarn --version; \
+  true
 
 # renovate: datasource=github-releases packageName=moby/moby
 RUN install-tool docker v24.0.7
@@ -82,9 +94,6 @@ RUN install-tool cocoapods 1.14.3
 
 # renovate: datasource=dotnet-version packageName=dotnet-sdk
 RUN install-tool dotnet 7.0.404
-
-# renovate: datasource=npm
-RUN install-tool pnpm 8.10.5
 
 # renovate: datasource=github-releases packageName=helm/helm
 RUN install-tool helm v3.13.2
