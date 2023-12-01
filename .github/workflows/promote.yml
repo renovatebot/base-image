@@ -35,7 +35,7 @@ jobs:
   release:
     needs: [build]
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 120
     permissions:
       contents: write
       packages: write
