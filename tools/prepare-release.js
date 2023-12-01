@@ -23,7 +23,7 @@ class PrepareCommand extends Command {
     process.env.BASE_IMAGE_REVISION = gitSha;
 
     r = shell.exec(
-      'docker buildx bake --set settings.platform=linux/amd64,linux/arm64 build',
+      'docker buildx bake --set settings.platform=linux/amd64,linux/arm64',
     );
     if (r.code) {
       return 1;

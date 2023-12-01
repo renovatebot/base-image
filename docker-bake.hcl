@@ -27,11 +27,19 @@ variable "GITHUB_TOKEN" {
 }
 
 group "default" {
-  targets = ["build-docker"]
+  targets = [
+    "build",
+    "build-full",
+  ]
 }
 
 group "push" {
-  targets = ["push-ghcr", "push-cache"]
+  targets = [
+    "push",
+    "push-full",
+    "push-cache",
+    "push-cache-full",
+  ]
 }
 
 
@@ -41,15 +49,33 @@ target "settings" {
     APT_HTTP_PROXY      = "${APT_HTTP_PROXY}"
     CONTAINERBASE_DEBUG = "${CONTAINERBASE_DEBUG}"
     BASE_IMAGE_VERSION  = "${BASE_IMAGE_VERSION}"
-    BASE_IMAGE_REVISION      = "${BASE_IMAGE_REVISION}"
+    BASE_IMAGE_REVISION = "${BASE_IMAGE_REVISION}"
     GITHUB_TOKEN        = "${GITHUB_TOKEN}"
   }
+  tags = [
+    "ghcr.io/${OWNER}/${FILE}",
+    "ghcr.io/${OWNER}/${FILE}:${TAG}",
+  ]
 }
 
 target "cache" {
   cache-from = [
     "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}",
     "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-${TAG}",
+  ]
+}
+
+target "full" {
+  args = {
+    BASE_IMAGE_TYPE = "full"
+  }
+  cache-from = [
+    "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-full",
+    "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-${TAG}-full",
+  ]
+   tags = [
+    "ghcr.io/${OWNER}/${FILE}:full",
+    "ghcr.io/${OWNER}/${FILE}:${TAG}-full",
   ]
 }
 
@@ -63,38 +89,30 @@ target "push-cache" {
   cache-to = ["type=inline,mode=max"]
 }
 
+target "push-cache-full" {
+  inherits = ["push-cache", "full"]
+  tags = [
+    "ghcr.io/${OWNER}/docker-build-cache:${FILE}-${TAG}-full",
+    "ghcr.io/${OWNER}/docker-build-cache:${FILE}-full",
+  ]
+}
+
 target "build" {
   inherits = ["settings", "cache"]
-  tags = [
-    "ghcr.io/${OWNER}/${FILE}",
-    "ghcr.io/${OWNER}/${FILE}:${TAG}",
-    "${OWNER}/${FILE}:${TAG}",
-    "${OWNER}/${FILE}"
-  ]
 }
 
-target "build-docker" {
-  inherits = ["settings", "cache"]
-  output   = ["type=docker"]
-  tags = [
-    "ghcr.io/${OWNER}/${FILE}",
-    "ghcr.io/${OWNER}/${FILE}:${TAG}",
-    "${OWNER}/${FILE}:${TAG}",
-    "${OWNER}/${FILE}",
-    "containerbase/test"
-  ]
+target "build-full" {
+  inherits = ["build", "full"]
+
 }
 
-
-target "push-ghcr" {
+target "push" {
   inherits = ["settings", "cache"]
   output   = ["type=registry"]
-  tags     = ["ghcr.io/${OWNER}/${FILE}", "ghcr.io/${OWNER}/${FILE}:${TAG}", ]
 }
 
-# target "push-hub" {
-#   inherits = ["settings", "cache"]
-#   output   = ["type=registry"]
-#   tags     = ["${OWNER}/${FILE}", "${OWNER}/${FILE}:${TAG}"]
-# }
+target "push-full" {
+  inherits = ["push", "full"]
+}
+
 
