@@ -30,6 +30,8 @@ FROM base as slim-base
 # --------------------------------------
 FROM base as full-base
 
+ARG APT_HTTP_PROXY
+
 # renovate: datasource=adoptium-java
 RUN install-tool java 17.0.9+9
 
