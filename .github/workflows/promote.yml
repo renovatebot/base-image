@@ -16,7 +16,7 @@ permissions:
   contents: read
 
 env:
-  DRY_RUN: ${{ github.ref_name != 'main' && true }}
+  DRY_RUN: ${{ github.ref_name != 'main' || true }}
   OWNER: ${{ github.repository_owner }}
   FILE: base-image
   BUILDKIT_PROGRESS: plain

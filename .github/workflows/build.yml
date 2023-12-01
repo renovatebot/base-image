@@ -66,5 +66,5 @@ jobs:
       - name: prepare apt proxy
         run: sudo pnpm prepare:proxy
 
-      - name: test distro
+      - name: build image
         run: docker buildx bake

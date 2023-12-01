@@ -21,6 +21,14 @@
       "description": "Use `fix` semantic commit scope for docker image deps",
       "matchFileNames": ["Dockerfile"],
       "semanticCommitType": "fix"
+    },
+    {
+      "description": "Trigger breaking release for major updates",
+      "matchFileNames": ["Dockerfile"],
+      "matchUpdateTypes": ["major"],
+      "semanticCommitType": "feat",
+      "commitBody": "BREAKING CHANGE: Major update",
+      "automergeType": "pr"
     }
   ]
 }
