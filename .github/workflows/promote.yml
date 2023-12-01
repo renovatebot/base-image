@@ -49,6 +49,7 @@ jobs:
       # full checkout for semantic-release
       - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
+          show-progress: false
           fetch-depth: 0
 
       - uses: sigstore/cosign-installer@1fc5bd396d372bee37d608f955b336615edf79c8 # v3.2.0
@@ -57,10 +58,8 @@ jobs:
         run: |
           echo "OWNER=${OWNER,,}" >> ${GITHUB_ENV}
 
-      - name: Set up Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3.8.2
-        with:
-          node-version-file: .node-version
+      - name: 📥 Setup Node.js
+        uses: ./.github/actions/setup-node
 
       #    cache: yarn
 

@@ -1,0 +1,63 @@
+name: 'Setup Node.js'
+description: 'Setup Node and install dependencies using cache'
+inputs:
+  save-cache:
+    description: 'Save cache when needed'
+    required: false
+    default: 'false'
+
+runs:
+  using: 'composite'
+
+  steps:
+    - name: ⚙️ Enable Corepack
+      shell: bash
+      run: sudo corepack enable
+
+    - name: ⚙️ Calculate `CACHE_KEY`
+      shell: bash
+      run: |
+        echo 'CACHE_KEY=node_modules-${{
+          hashFiles('.node-version', 'pnpm-lock.yaml')
+        }}' >> "$GITHUB_ENV"
+
+    - name: ♻️ Restore `node_modules`
+      uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+      id: node-modules-restore
+      with:
+        path: node_modules
+        key: ${{ env.CACHE_KEY }}
+        enableCrossOsArchive: true
+
+    - name: Calculate `CACHE_HIT`
+      shell: bash
+      run: |
+        echo 'CACHE_HIT=${{
+          (steps.node-modules-restore.outputs.cache-hit == 'true') && 'true' || ''
+        }}' >> "$GITHUB_ENV"
+
+    - name: ⚙️ Setup Node.js ${{ inputs.node-version }}
+      uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
+      with:
+        node-version-file: .node-version
+        cache: ${{ env.CACHE_HIT != 'true' && 'pnpm' || '' }}
+
+    - name: ⚙️ Enable Corepack
+      shell: bash
+      run: sudo corepack enable
+
+    - name: 📥 Install dependencies
+      if: env.CACHE_HIT != 'true'
+      shell: bash
+      run: pnpm install
+      env:
+        # Other environment variables
+        HUSKY: '0' # By default do not run HUSKY install
+
+    - name: ♻️ Write `node_modules` cache
+      if: inputs.save-cache == 'true' && env.CACHE_HIT != 'true'
+      uses: actions/cache/save@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+      with:
+        path: node_modules
+        key: ${{ env.CACHE_KEY }}
+        enableCrossOsArchive: true
