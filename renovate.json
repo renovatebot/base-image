@@ -12,15 +12,10 @@
       "additionalBranchPrefix": "ci-"
     },
     {
-      "description": "Use `build` semantic commit scope for build deps",
-      "matchDepNames": ["node"],
-      "semanticCommitType": "build",
-      "additionalBranchPrefix": "build-"
-    },
-    {
       "description": "Use `fix` semantic commit scope for docker image deps",
       "matchFileNames": ["Dockerfile"],
-      "semanticCommitType": "fix"
+      "semanticCommitType": "fix",
+      "additionalBranchPrefix": "deps-"
     },
     {
       "description": "Use `feat` semantic commit scope for docker image deps minor updates",
@@ -29,7 +24,7 @@
       "semanticCommitType": "feat"
     },
     {
-      "description": "Use `feat` with breaking change semantic commit scope for docker image deps major updates",
+      "description": "Use `feat` semantic commit scope with breaking change for docker image deps major updates",
       "matchFileNames": ["Dockerfile"],
       "matchUpdateTypes": ["major"],
       "semanticCommitType": "feat",
