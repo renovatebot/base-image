@@ -1,0 +1,29 @@
+{
+  "name": "base-image",
+  "version": "0.0.0-semantic-release",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/renovatebot/base-image.git"
+  },
+  "license": "MIT",
+  "author": "Rhys Arkins <rhys@arkins.net>",
+  "contributors": [
+    "Michael Kriese <michael.kriese@visualon.de>",
+    "Liora Milbaum <liora@lmb.co.il>"
+  ],
+  "scripts": {
+    "prepara": "husky install"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.1.0",
+    "prettier-plugin-packagejson": "^2.4.6"
+  },
+  "packageManager": "pnpm@8.10.5",
+  "engines": {
+    "node": "^18.12.0 || >=20.0.0",
+    "pnpm": "^8.0.0"
+  }
+}
