@@ -21,7 +21,6 @@ env:
   FILE: base
   BUILDKIT_PROGRESS: plain
   BUILDX_NO_DEFAULT_LOAD: 1
-  NODE_VERSION: 18.19.0 # renovate: datasource=node depName=node
   CONTAINERBASE_VERSION: ${{ github.sha }}
   APT_HTTP_PROXY: http://172.17.0.1:8000
 
@@ -31,7 +30,7 @@ jobs:
     permissions:
       contents: read
       checks: write
-  
+
   release:
     needs: [build]
     runs-on: ubuntu-latest
@@ -61,7 +60,8 @@ jobs:
       - name: Set up Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3.8.2
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .node-version
+
       #    cache: yarn
 
       # - name: Installing dependencies
