@@ -13,7 +13,7 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image
   org.opencontainers.image.licenses="MIT" \
   org.label-schema.vcs-url="https://github.com/renovatebot/base-image"
 
-# renovate: datasource=containerbase/node-prebuild versioning=node
+# renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
 RUN install-tool node v18.19.0
 
 # renovate: datasource=npm depName=pnpm
