@@ -62,6 +62,11 @@ jobs:
       - name: 📥 Setup Node.js
         uses: ./.github/actions/setup-node
 
+      - name: Docker registry login
+        if: github.ref_name == 'main'
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+
       - name: prepare apt proxy
         run: sudo pnpm prepare:proxy
 
