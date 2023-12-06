@@ -16,6 +16,9 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image
 # renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
 RUN install-tool node v18.19.0
 
+# renovate: datasource=npm
+RUN install-tool corepack 0.23.0
+
 # renovate: datasource=npm depName=pnpm
 ARG PNPM_VERSION=8.11.0
 
@@ -24,11 +27,10 @@ ARG YARN_VERSION=1.22.21
 
 # enable corepack and precache yarn and pnpm
 RUN set -ex; \
-  corepack enable; \
   corepack install --global pnpm@${PNPM_VERSION} yarn@${YARN_VERSION}; \
   pnpm --version; \
   yarn --version; \
-  true
+  false
 
 # renovate: datasource=github-releases packageName=moby/moby
 RUN install-tool docker v24.0.7
