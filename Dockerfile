@@ -30,7 +30,7 @@ RUN set -ex; \
   corepack install --global pnpm@${PNPM_VERSION} yarn@${YARN_VERSION}; \
   pnpm --version; \
   yarn --version; \
-  false
+  true
 
 # renovate: datasource=github-releases packageName=moby/moby
 RUN install-tool docker v24.0.7
