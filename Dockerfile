@@ -20,7 +20,7 @@ RUN install-tool node v18.19.0
 RUN install-tool corepack 0.23.0
 
 # renovate: datasource=npm depName=pnpm
-ARG PNPM_VERSION=8.13.0
+ARG PNPM_VERSION=8.13.1
 
 # renovate: datasource=npm depName=yarn
 ARG YARN_VERSION=1.22.21
