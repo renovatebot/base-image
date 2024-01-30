@@ -108,7 +108,7 @@ RUN install-tool jb v0.5.1
 RUN install-tool bun 1.0.25
 
 # renovate: datasource=github-tags packageName=NixOS/nix
-RUN install-tool nix 2.20.0
+RUN install-tool nix 2.20.1
 
 # renovate: datasource=github-releases packageName=bazelbuild/bazelisk
 RUN install-tool bazelisk v1.19.0
