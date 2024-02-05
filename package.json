@@ -15,7 +15,7 @@
   "type": "module",
   "scripts": {
     "lint": "run-s prettier",
-    "prepare": "husky install",
+    "prepare": "husky",
     "prepare:proxy": "node tools/prepare-proxy.js",
     "prettier": "prettier --cache --check --ignore-unknown '**/*.*'",
     "prettier-fix": "prettier --cache --write --ignore-unknown '**/*.*'",
