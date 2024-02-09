@@ -57,7 +57,6 @@ target "settings" {
 target "cache" {
   cache-from = [
     "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}",
-    "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-${TAG}",
   ]
 }
 
@@ -67,7 +66,6 @@ target "full" {
   }
   cache-from = [
     "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-full",
-    "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-${TAG}-full",
   ]
    tags = [
     "ghcr.io/${OWNER}/${FILE}:full",
@@ -79,7 +77,6 @@ target "push-cache" {
   inherits = ["settings", "cache"]
   output   = ["type=registry"]
   tags = [
-    "ghcr.io/${OWNER}/docker-build-cache:${FILE}-${TAG}",
     "ghcr.io/${OWNER}/docker-build-cache:${FILE}",
   ]
   cache-to = ["type=inline,mode=max"]
@@ -88,7 +85,6 @@ target "push-cache" {
 target "push-cache-full" {
   inherits = ["push-cache", "full"]
   tags = [
-    "ghcr.io/${OWNER}/docker-build-cache:${FILE}-${TAG}-full",
     "ghcr.io/${OWNER}/docker-build-cache:${FILE}-full",
   ]
 }
