@@ -99,7 +99,7 @@ RUN install-tool cocoapods 1.15.2
 RUN install-tool dotnet 7.0.406
 
 # renovate: datasource=github-releases packageName=helm/helm
-RUN install-tool helm v3.14.1
+RUN install-tool helm v3.14.2
 
 # renovate: datasource=github-releases packageName=jsonnet-bundler/jsonnet-bundler
 RUN install-tool jb v0.5.1
