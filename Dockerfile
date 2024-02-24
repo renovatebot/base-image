@@ -105,7 +105,7 @@ RUN install-tool helm v3.14.2
 RUN install-tool jb v0.5.1
 
 # renovate: datasource=npm
-RUN install-tool bun 1.0.27
+RUN install-tool bun 1.0.29
 
 # renovate: datasource=github-tags packageName=NixOS/nix
 RUN install-tool nix 2.20.3
