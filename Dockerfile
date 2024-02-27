@@ -17,7 +17,7 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image
 RUN install-tool node 18.19.1
 
 # renovate: datasource=npm
-RUN install-tool corepack 0.25.0
+RUN install-tool corepack 0.25.2
 
 # renovate: datasource=npm depName=pnpm
 ARG PNPM_VERSION=8.15.3
