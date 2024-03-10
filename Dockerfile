@@ -1,6 +1,6 @@
 ARG BASE_IMAGE_TYPE=slim
 
-FROM ghcr.io/containerbase/sidecar:10.2.3@sha256:cbaa9b4b076ed570aa29b1fd099525291cf09acf193f5a4c0ef626fcd9d99bb5 AS base
+FROM ghcr.io/containerbase/sidecar:10.2.4@sha256:bc3dd62fe9050d2ef4deba22b455a2caac66477ecfe933148cab7b1bcc932d4f AS base
 
 # sidecar defaults to 1000
 USER root
