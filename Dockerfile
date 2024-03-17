@@ -23,7 +23,7 @@ RUN install-tool corepack 0.26.0
 ARG PNPM_VERSION=8.15.4
 
 # renovate: datasource=npm depName=yarn
-ARG YARN_VERSION=1.22.21
+ARG YARN_VERSION=1.22.22
 
 # enable corepack and precache yarn and pnpm
 RUN set -ex; \
