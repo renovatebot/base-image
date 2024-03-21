@@ -16,7 +16,7 @@ permissions:
   contents: read
 
 env:
-  DRY_RUN: ${{ github.ref_name != 'main' }}
+  DRY_RUN: ${{ github.ref_name != 'main' && !startsWith(github.ref_name, 'release/')}}
   OWNER: ${{ github.repository_owner }}
   FILE: base-image
   BUILDKIT_PROGRESS: plain
@@ -51,6 +51,7 @@ jobs:
         with:
           show-progress: false
           fetch-depth: 0
+          filter: blob:none
 
       - uses: sigstore/cosign-installer@e1523de7571e31dbe865fd2e80c5c7c23ae71eb4 # v3.4.0
 
@@ -62,7 +63,7 @@ jobs:
         uses: ./.github/actions/setup-node
 
       - name: Docker registry login
-        if: github.ref_name == 'main'
+        if: github.ref_name == 'main' || startsWith(github.ref_name, 'release/')
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
