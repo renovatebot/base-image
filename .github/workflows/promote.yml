@@ -16,7 +16,7 @@ permissions:
   contents: read
 
 env:
-  DRY_RUN: ${{ github.ref_name != 'main' && !startsWith(github.ref_name, 'release/')}}
+  DRY_RUN: ${{ github.ref_name != 'main' && !startsWith(github.ref_name, 'maint/')}}
   OWNER: ${{ github.repository_owner }}
   FILE: base-image
   BUILDKIT_PROGRESS: plain
@@ -63,7 +63,7 @@ jobs:
         uses: ./.github/actions/setup-node
 
       - name: Docker registry login
-        if: github.ref_name == 'main' || startsWith(github.ref_name, 'release/')
+        if: github.ref_name == 'main' || startsWith(github.ref_name, 'maint/')
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
