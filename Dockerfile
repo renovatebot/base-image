@@ -66,7 +66,7 @@ RUN install-tool php 8.3.4
 RUN install-tool composer 2.7.2
 
 # renovate: datasource=golang-version
-RUN install-tool golang 1.22.1
+RUN install-tool golang 1.22.2
 
 # renovate: datasource=github-releases packageName=containerbase/python-prebuild
 RUN install-tool python 3.12.2
