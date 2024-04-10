@@ -69,7 +69,7 @@ RUN install-tool composer 2.7.2
 RUN install-tool golang 1.22.2
 
 # renovate: datasource=github-releases packageName=containerbase/python-prebuild
-RUN install-tool python 3.12.2
+RUN install-tool python 3.12.3
 
 # renovate: datasource=pypi
 RUN install-tool pipenv 2023.12.1
