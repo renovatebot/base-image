@@ -4,6 +4,7 @@
     "github>renovatebot/.github",
     "github>renovatebot/.github//merge-queue.json"
   ],
+  "baseBranches": ["main", "/^maint/.+/"],
   "packageRules": [
     {
       "description": "Use `ci` semantic commit scope for ci deps",
@@ -35,6 +36,19 @@
       "matchUpdateTypes": ["minor"],
       "matchDepNames": ["php", "python", "ruby"],
       "commitMessagePrefix": "feat(deps)!:"
+    },
+    {
+      "description": "Require approval for major updates for `maint` branches",
+      "matchBaseBranches": ["/^maint/.+/"],
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Require approval for some minor updates for `maint` branches",
+      "matchBaseBranches": ["/^maint/.+/"],
+      "matchUpdateTypes": ["minor"],
+      "matchDepNames": ["php", "python", "ruby"],
+      "dependencyDashboardApproval": true
     }
   ]
 }
