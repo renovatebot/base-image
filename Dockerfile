@@ -36,7 +36,7 @@ USER 1000
 
 # precache yarn and pnpm
 RUN set -ex; \
-  corepack install --global --cache-only pnpm@${PNPM_VERSION} yarn@${YARN_VERSION}; \
+  corepack install --global pnpm@${PNPM_VERSION} yarn@${YARN_VERSION}; \
   COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm --version; \
   COREPACK_ENABLE_DOWNLOAD_PROMPT=0 yarn --version; \
   true
