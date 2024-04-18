@@ -33,7 +33,7 @@ RUN set -ex; \
   true
 
 # renovate: datasource=github-releases packageName=moby/moby
-RUN install-tool docker v26.0.1
+RUN install-tool docker v26.0.2
 
 # --------------------------------------
 # slim image
