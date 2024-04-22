@@ -13,6 +13,9 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image
   org.opencontainers.image.licenses="MIT" \
   org.label-schema.vcs-url="https://github.com/renovatebot/base-image"
 
+# renovate: datasource=github-releases packageName=git-lfs/git-lfs
+RUN install-tool git-lfs v3.5.1
+
 # renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
 RUN install-tool node 20.12.2
 
