@@ -106,7 +106,7 @@ RUN install-tool corepack 0.28.0
 USER 1000
 
 # renovate: datasource=npm depName=pnpm
-ARG PNPM_VERSION=8.15.7
+ARG PNPM_VERSION=9.0.5
 
 # renovate: datasource=npm depName=yarn
 ARG YARN_VERSION=1.22.22
