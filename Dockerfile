@@ -19,33 +19,6 @@ RUN install-tool git-lfs v3.5.1
 # renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
 RUN install-tool node 20.12.2
 
-# renovate: datasource=npm
-RUN install-tool corepack 0.28.0
-
-# renovate: datasource=npm depName=pnpm
-ARG PNPM_VERSION=8.15.7
-
-# renovate: datasource=npm depName=yarn
-ARG YARN_VERSION=1.22.22
-
-# enable corepack and precache yarn and pnpm
-RUN set -ex; \
-  corepack install --global pnpm@${PNPM_VERSION} yarn@${YARN_VERSION}; \
-  pnpm --version; \
-  yarn --version; \
-  true
-
-USER 1000
-
-# precache yarn and pnpm
-RUN set -ex; \
-  corepack install --global pnpm@${PNPM_VERSION} yarn@${YARN_VERSION}; \
-  COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm --version; \
-  COREPACK_ENABLE_DOWNLOAD_PROMPT=0 yarn --version; \
-  true
-
-USER 0
-
 # renovate: datasource=github-releases packageName=moby/moby
 RUN install-tool docker v26.1.0
 
@@ -126,6 +99,26 @@ RUN install-tool nix 2.21.2
 
 # renovate: datasource=github-releases packageName=bazelbuild/bazelisk
 RUN install-tool bazelisk v1.19.0
+
+# renovate: datasource=npm
+RUN install-tool corepack 0.28.0
+
+USER 1000
+
+# renovate: datasource=npm depName=pnpm
+ARG PNPM_VERSION=8.15.7
+
+# renovate: datasource=npm depName=yarn
+ARG YARN_VERSION=1.22.22
+
+# precache yarn and pnpm
+RUN set -ex; \
+  corepack install --global pnpm@${PNPM_VERSION} yarn@${YARN_VERSION}; \
+  COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm --version; \
+  COREPACK_ENABLE_DOWNLOAD_PROMPT=0 yarn --version; \
+  true
+
+USER 0
 
 # --------------------------------------
 # final image
