@@ -17,31 +17,11 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image
 RUN install-tool node 18.20.2
 
 # renovate: datasource=npm
-RUN install-tool corepack 0.28.0
+RUN install-tool pnpm 8.15.7
 
-# renovate: datasource=npm depName=pnpm
-ARG PNPM_VERSION=8.15.7
+# renovate: datasource=npm
+RUN install-tool yarn 1.22.22
 
-# renovate: datasource=npm depName=yarn
-ARG YARN_VERSION=1.22.22
-
-# enable corepack and precache yarn and pnpm
-RUN set -ex; \
-  corepack install --global pnpm@${PNPM_VERSION} yarn@${YARN_VERSION}; \
-  COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm --version; \
-  COREPACK_ENABLE_DOWNLOAD_PROMPT=0 yarn --version; \
-  true
-
-USER 1000
-
-# precache yarn and pnpm
-RUN set -ex; \
-  corepack install --global pnpm@${PNPM_VERSION} yarn@${YARN_VERSION}; \
-  COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm --version; \
-  COREPACK_ENABLE_DOWNLOAD_PROMPT=0 yarn --version; \
-  true
-
-USER 0
 
 # renovate: datasource=github-releases packageName=moby/moby
 RUN install-tool docker v24.0.9
