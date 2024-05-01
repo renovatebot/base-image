@@ -101,7 +101,7 @@ RUN install-tool nix 2.22.0
 RUN install-tool bazelisk v1.19.0
 
 # renovate: datasource=npm
-RUN install-tool pnpm 9.0.5
+RUN install-tool pnpm 9.0.6
 
 # renovate: datasource=npm packageName=@yarnpkg/cli-dist
 RUN install-tool yarn 1.22.22
