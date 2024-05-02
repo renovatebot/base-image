@@ -44,11 +44,13 @@ RUN install-tool java 17.0.11+9
 # renovate: datasource=gradle-version
 RUN install-tool gradle 8.7
 
+
 # renovate: datasource=github-releases packageName=containerbase/erlang-prebuild versioning=docker
 RUN install-tool erlang 26.2.4.0
 
 # renovate: datasource=github-releases packageName=elixir-lang/elixir
 RUN install-tool elixir v1.16.2
+
 
 # renovate: datasource=github-releases packageName=containerbase/php-prebuild
 RUN install-tool php 8.3.6
@@ -56,29 +58,33 @@ RUN install-tool php 8.3.6
 # renovate: datasource=github-releases packageName=composer/composer
 RUN install-tool composer 2.7.4
 
+
 # renovate: datasource=golang-version
 RUN install-tool golang 1.22.2
+
 
 # renovate: datasource=github-releases packageName=containerbase/python-prebuild
 RUN install-tool python 3.12.3
 
 # renovate: datasource=pypi
-RUN install-tool pipenv 2023.12.1
+RUN install-tool hashin 0.17.0
 
 # renovate: datasource=pypi
 RUN install-tool pdm 2.15.1
 
-# renovate: datasource=github-releases packageName=python-poetry/poetry
-RUN install-tool poetry 1.8.2
-
-# renovate: datasource=pypi
-RUN install-tool hashin 0.17.0
-
 # renovate: datasource=pypi
 RUN install-tool pip-tools 7.4.1
 
+# renovate: datasource=pypi
+RUN install-tool pipenv 2023.12.1
+
+# renovate: datasource=pypi
+RUN install-tool poetry 1.8.2
+
+
 # renovate: datasource=docker
 RUN install-tool rust 1.77.2
+
 
 # renovate: datasource=github-releases packageName=containerbase/ruby-prebuild
 RUN install-tool ruby 3.3.1
@@ -89,20 +95,26 @@ RUN install-tool bundler 2.5.9
 # renovate: datasource=rubygems
 RUN install-tool cocoapods 1.15.2
 
+
 # renovate: datasource=dotnet-version packageName=dotnet-sdk
 RUN install-tool dotnet 7.0.408
+
 
 # renovate: datasource=github-releases packageName=helm/helm
 RUN install-tool helm v3.14.4
 
+
 # renovate: datasource=github-releases packageName=jsonnet-bundler/jsonnet-bundler
 RUN install-tool jb v0.5.1
+
 
 # renovate: datasource=npm
 RUN install-tool bun 1.1.4
 
+
 # renovate: datasource=github-tags packageName=NixOS/nix
 RUN install-tool nix 2.22.0
+
 
 # renovate: datasource=github-releases packageName=bazelbuild/bazelisk
 RUN install-tool bazelisk v1.19.0
