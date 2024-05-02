@@ -76,7 +76,7 @@ RUN install-tool poetry 1.8.2
 
 
 # renovate: datasource=docker
-RUN install-tool rust 1.77.2
+RUN install-tool rust 1.78.0
 
 
 # renovate: datasource=github-releases packageName=containerbase/ruby-prebuild
