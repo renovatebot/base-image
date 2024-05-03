@@ -49,7 +49,7 @@ RUN install-tool elixir v1.16.2
 RUN install-tool php 8.3.6
 
 # renovate: datasource=github-releases packageName=composer/composer
-RUN install-tool composer 2.7.4
+RUN install-tool composer 2.7.5
 
 
 # renovate: datasource=golang-version
