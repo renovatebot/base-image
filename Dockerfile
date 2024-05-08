@@ -75,7 +75,7 @@ RUN install-tool pip-tools 7.4.1
 RUN install-tool pipenv 2023.12.1
 
 # renovate: datasource=pypi
-RUN install-tool poetry 1.8.2
+RUN install-tool poetry 1.8.3
 
 
 # renovate: datasource=docker
