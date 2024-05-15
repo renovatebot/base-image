@@ -1,3 +1,3 @@
 # Renovate base-image
 
-This repository is used as a base image for renovatebot/renovate docker images.
+This repository is the base image for our [`renovatebot/renovate` Docker images](https://hub.docker.com/r/renovate/renovate).
