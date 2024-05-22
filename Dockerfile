@@ -14,7 +14,7 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image
   org.label-schema.vcs-url="https://github.com/renovatebot/base-image"
 
 # renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
-RUN install-tool node 18.20.2
+RUN install-tool node 18.20.3
 
 # renovate: datasource=npm
 RUN install-tool pnpm 8.15.8
