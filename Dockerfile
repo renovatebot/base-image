@@ -14,7 +14,7 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image
   org.label-schema.vcs-url="https://github.com/renovatebot/base-image"
 
 # renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
-RUN install-tool node 20.13.1
+RUN install-tool node 20.14.0
 
 # renovate: datasource=github-releases packageName=moby/moby
 RUN install-tool docker v26.1.3
