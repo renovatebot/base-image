@@ -93,7 +93,7 @@ RUN install-tool cocoapods 1.15.2
 
 
 # renovate: datasource=dotnet-version packageName=dotnet-sdk
-RUN install-tool dotnet 8.0.300
+RUN install-tool dotnet 8.0.301
 
 
 # renovate: datasource=github-releases packageName=helm/helm
