@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@semantic-release/exec": "6.0.3",
-    "@types/node": "20.14.7",
+    "@types/node": "20.14.8",
     "@types/shelljs": "0.8.15",
     "clipanion": "4.0.0-rc.3",
     "conventional-changelog-conventionalcommits": "7.0.2",
