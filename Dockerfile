@@ -17,7 +17,7 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image
 RUN install-tool node 20.15.1
 
 # renovate: datasource=github-releases packageName=moby/moby
-RUN install-tool docker v26.1.4
+RUN install-tool docker v26.1.5
 
 # --------------------------------------
 # slim image
