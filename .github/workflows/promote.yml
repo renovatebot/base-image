@@ -43,12 +43,12 @@ jobs:
 
     steps:
       - name: docker-config
-        uses: containerbase/internal-tools@a0551836e0d8c9de0562e344da3c3832a03b9742 # v3.0.88
+        uses: containerbase/internal-tools@bbe92263bdc6c66203234f0ab89695137157506c # v3.3.11
         with:
           command: docker-config
 
       # full checkout for semantic-release
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           show-progress: false
           fetch-depth: 0
