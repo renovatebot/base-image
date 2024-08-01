@@ -10,8 +10,7 @@ ARG APT_HTTP_PROXY
 LABEL name="renovate/base-image"
 LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image" \
   org.opencontainers.image.url="https://renovatebot.com" \
-  org.opencontainers.image.licenses="MIT" \
-  org.label-schema.vcs-url="https://github.com/renovatebot/base-image"
+  org.opencontainers.image.licenses="MIT"
 
 # renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
 RUN install-tool node 20.16.0
@@ -130,6 +129,5 @@ FROM ${BASE_IMAGE_TYPE}-base
 ARG BASE_IMAGE_VERSION
 
 LABEL \
-  org.opencontainers.image.version="${BASE_IMAGE_VERSION}" \
-  org.label-schema.version="${BASE_IMAGE_VERSION}"
+  org.opencontainers.image.version="${BASE_IMAGE_VERSION}"
 

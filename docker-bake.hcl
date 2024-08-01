@@ -19,22 +19,18 @@ variable "CONTAINERBASE_DEBUG" {
   default = ""
 }
 
-variable "GITHUB_TOKEN" {
-  default = ""
-}
-
 group "default" {
   targets = [
-    "build",
+    "build-slim",
     "build-full",
   ]
 }
 
 group "push" {
   targets = [
-    "push",
+    "push-slim",
     "push-full",
-    "push-cache",
+    "push-cache-slim",
     "push-cache-full",
   ]
 }
@@ -46,65 +42,76 @@ target "settings" {
     APT_HTTP_PROXY      = "${APT_HTTP_PROXY}"
     CONTAINERBASE_DEBUG = "${CONTAINERBASE_DEBUG}"
     BASE_IMAGE_VERSION  = "${BASE_IMAGE_VERSION}"
-    GITHUB_TOKEN        = "${GITHUB_TOKEN}"
   }
+}
+
+target "slim" {
+  inherits = ["settings"]
+  cache-from = [
+    "type=registry,ref=ghcr.io/${OWNER}/${FILE}",
+    "type=registry,ref=ghcr.io/${OWNER}/${FILE}:${TAG}",
+    "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}",
+  ]
+}
+
+target "full" {
+  inherits = ["settings"]
+  args = {
+    BASE_IMAGE_TYPE = "full"
+  }
+  cache-from = [
+    "type=registry,ref=ghcr.io/${OWNER}/${FILE}:full",
+    "type=registry,ref=ghcr.io/${OWNER}/${FILE}:${TAG}-full",
+    "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-full",
+  ]
+}
+
+target "publish" {
+  output = ["type=registry"]
+}
+
+target "cache" {
+  inherits = ["publish"]
+  cache-to = ["type=inline,mode=max"]
+}
+
+target "push-cache-slim" {
+  inherits = ["slim", "cache"]
+  tags = [
+    "ghcr.io/${OWNER}/docker-build-cache:${FILE}",
+  ]
+}
+
+target "push-cache-full" {
+  inherits = ["full", "cache"]
+  tags = [
+    "ghcr.io/${OWNER}/docker-build-cache:${FILE}-full",
+  ]
+}
+
+target "build-slim" {
+  inherits = ["slim"]
   tags = [
     "ghcr.io/${OWNER}/${FILE}",
     "ghcr.io/${OWNER}/${FILE}:${TAG}",
   ]
 }
 
-target "cache" {
-  cache-from = [
-    "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}",
-  ]
-}
-
-target "full" {
-  args = {
-    BASE_IMAGE_TYPE = "full"
-  }
-  cache-from = [
-    "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-full",
-  ]
-   tags = [
+target "build-full" {
+  inherits = ["full"]
+  tags = [
     "ghcr.io/${OWNER}/${FILE}:full",
     "ghcr.io/${OWNER}/${FILE}:${TAG}-full",
   ]
-}
-
-target "push-cache" {
-  inherits = ["settings", "cache"]
-  output   = ["type=registry"]
-  tags = [
-    "ghcr.io/${OWNER}/docker-build-cache:${FILE}",
-  ]
-  cache-to = ["type=inline,mode=max"]
-}
-
-target "push-cache-full" {
-  inherits = ["push-cache", "full"]
-  tags = [
-    "ghcr.io/${OWNER}/docker-build-cache:${FILE}-full",
-  ]
-}
-
-target "build" {
-  inherits = ["settings", "cache"]
-}
-
-target "build-full" {
-  inherits = ["build", "full"]
 
 }
 
-target "push" {
-  inherits = ["settings", "cache"]
-  output   = ["type=registry"]
+target "push-slim" {
+  inherits = ["build-slim", "publish"]
 }
 
 target "push-full" {
-  inherits = ["push", "full"]
+  inherits = ["build-full", "publish"]
 }
 
 
