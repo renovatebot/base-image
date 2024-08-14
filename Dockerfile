@@ -34,7 +34,7 @@ ARG APT_HTTP_PROXY
 RUN install-tool java 21.0.4+7.0.LTS
 
 # renovate: datasource=gradle-version
-RUN install-tool gradle 8.9
+RUN install-tool gradle 8.10
 
 
 # renovate: datasource=github-releases packageName=containerbase/erlang-prebuild versioning=docker
