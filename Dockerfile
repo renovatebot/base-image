@@ -108,7 +108,7 @@ RUN install-tool bun 1.1.24
 
 
 # renovate: datasource=github-tags packageName=NixOS/nix
-RUN install-tool nix 2.24.2
+RUN install-tool nix 2.24.3
 
 
 # renovate: datasource=github-releases packageName=bazelbuild/bazelisk
