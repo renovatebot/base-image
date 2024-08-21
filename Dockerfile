@@ -13,7 +13,7 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image
   org.opencontainers.image.licenses="MIT"
 
 # renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
-RUN install-tool node 20.16.0
+RUN install-tool node 20.17.0
 
 # renovate: datasource=github-releases packageName=moby/moby
 RUN install-tool docker v27.1.2
