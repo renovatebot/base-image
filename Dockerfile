@@ -100,7 +100,7 @@ RUN install-tool helm v3.15.4
 
 
 # renovate: datasource=github-releases packageName=jsonnet-bundler/jsonnet-bundler
-RUN install-tool jb v0.5.1
+RUN install-tool jb v0.6.0
 
 
 # renovate: datasource=npm
