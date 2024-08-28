@@ -104,7 +104,7 @@ RUN install-tool jb v0.6.0
 
 
 # renovate: datasource=npm
-RUN install-tool bun 1.1.24
+RUN install-tool bun 1.1.25
 
 
 # renovate: datasource=github-tags packageName=NixOS/nix
