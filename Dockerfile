@@ -65,7 +65,7 @@ RUN install-tool conan 2.7.0
 RUN install-tool hashin 1.0.1
 
 # renovate: datasource=pypi
-RUN install-tool pdm 2.18.1
+RUN install-tool pdm 2.18.2
 
 # renovate: datasource=pypi
 RUN install-tool pip-tools 7.4.1
