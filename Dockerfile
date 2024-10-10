@@ -12,8 +12,6 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image
   org.opencontainers.image.url="https://renovatebot.com" \
   org.opencontainers.image.licenses="MIT"
 
-# renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
-RUN install-tool node 20.18.0
 
 # renovate: datasource=github-releases packageName=moby/moby
 RUN install-tool docker v27.3.1
@@ -114,6 +112,9 @@ RUN install-tool nix 2.24.9
 # renovate: datasource=github-releases packageName=bazelbuild/bazelisk
 RUN install-tool bazelisk v1.22.0
 
+
+# renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
+RUN install-tool node 20.18.0
 
 # renovate: datasource=npm
 RUN install-tool pnpm 9.12.0
