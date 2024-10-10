@@ -4,7 +4,7 @@
     "github>renovatebot/.github",
     "github>renovatebot/.github//merge-queue.json"
   ],
-  "baseBranches": ["main", "/^maint/.+/"],
+  "baseBranches": ["$default", "/^maint/.+/"],
   "packageRules": [
     {
       "description": "Use `ci` semantic commit scope for ci deps",
@@ -35,7 +35,8 @@
       "matchFileNames": ["Dockerfile"],
       "matchUpdateTypes": ["minor"],
       "matchDepNames": ["php", "python", "ruby"],
-      "commitMessagePrefix": "feat(deps)!:"
+      "commitMessagePrefix": "feat(deps)!:",
+      "automerge": false
     },
     {
       "description": "Require approval for major updates for `maint` branches",
