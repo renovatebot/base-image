@@ -110,7 +110,7 @@ RUN install-tool nix 2.24.9
 
 
 # renovate: datasource=github-releases packageName=bazelbuild/bazelisk
-RUN install-tool bazelisk v1.22.0
+RUN install-tool bazelisk v1.22.1
 
 
 # renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
