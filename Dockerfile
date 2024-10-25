@@ -119,7 +119,7 @@ RUN install-tool bazelisk v1.22.1
 RUN install-tool pnpm 9.12.2
 
 # renovate: datasource=npm packageName=@yarnpkg/cli-dist
-RUN install-tool yarn 4.5.0
+RUN install-tool yarn 4.5.1
 
 # --------------------------------------
 # final image
