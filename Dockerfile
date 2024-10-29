@@ -86,7 +86,7 @@ RUN install-tool ruby 3.3.5
 RUN install-tool bundler 2.5.22
 
 # renovate: datasource=rubygems
-RUN install-tool cocoapods 1.15.2
+RUN install-tool cocoapods 1.16.0
 
 
 # renovate: datasource=dotnet-version packageName=dotnet-sdk
