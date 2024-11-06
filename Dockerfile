@@ -71,7 +71,7 @@ RUN install-tool pdm 2.20.0.post1
 RUN install-tool pip-tools 7.4.1
 
 # renovate: datasource=pypi
-RUN install-tool pipenv 2024.3.1
+RUN install-tool pipenv 2024.4.0
 
 # renovate: datasource=pypi
 RUN install-tool poetry 1.8.4
