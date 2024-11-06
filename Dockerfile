@@ -112,7 +112,7 @@ RUN install-tool nix 2.24.10
 
 
 # renovate: datasource=github-releases packageName=bazelbuild/bazelisk
-RUN install-tool bazelisk v1.22.1
+RUN install-tool bazelisk v1.23.0
 
 
 # renovate: datasource=npm
