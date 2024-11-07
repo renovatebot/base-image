@@ -59,7 +59,7 @@ RUN install-tool golang 1.23.3
 RUN install-tool python 3.12.7
 
 # renovate: datasource=pypi
-RUN install-tool conan 2.9.1
+RUN install-tool conan 2.9.2
 
 # renovate: datasource=pypi
 RUN install-tool hashin 1.0.3
