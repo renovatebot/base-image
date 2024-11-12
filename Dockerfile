@@ -107,7 +107,7 @@ RUN install-tool jb v0.6.0
 RUN install-tool bun 1.1.34
 
 
-# renovate: datasource=github-tags packageName=NixOS/nix
+# renovate: datasource=github-releases packageName=containerbase/nix-prebuild
 RUN install-tool nix 2.25.0
 
 
