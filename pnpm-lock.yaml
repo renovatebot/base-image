@@ -1155,8 +1155,8 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
-  pretty-ms@9.1.0:
-    resolution: {integrity: sha512-o1piW0n3tgKIKCwk2vpM/vOV13zjJzvP37Ioze54YlTHE06m4tjEbzg9WsKkvTuyYln2DHjo5pY4qrZGI0otpw==}
+  pretty-ms@9.2.0:
+    resolution: {integrity: sha512-4yf0QO/sllf/1zbZWYnvWw3NxCQwLXKzIj0G849LSufP15BXKM0rbD2Z3wVnkMfjdn/CB0Dpp444gYAACdsplg==}
     engines: {node: '>=18'}
 
   process-nextick-args@2.0.1:
@@ -1436,8 +1436,8 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@4.26.1:
-    resolution: {integrity: sha512-yOGpmOAL7CkKe/91I5O3gPICmJNLJ1G4zFYVAsRHg7M64biSnPtRj0WNQt++bRkjYOqjWXrhnUw1utzmVErAdg==}
+  type-fest@4.27.0:
+    resolution: {integrity: sha512-3IMSWgP7C5KSQqmo1wjhKrwsvXAtF33jO3QY+Uy++ia7hqvgSK6iXbbg5PbDBc1P2ZbNEDgejOrN4YooXvhwCw==}
     engines: {node: '>=16'}
 
   uglify-js@3.19.3:
@@ -2026,7 +2026,7 @@ snapshots:
       is-plain-obj: 4.1.0
       is-stream: 4.0.1
       npm-run-path: 6.0.0
-      pretty-ms: 9.1.0
+      pretty-ms: 9.2.0
       signal-exit: 4.1.0
       strip-final-newline: 4.0.0
       yoctocolors: 2.1.1
@@ -2525,7 +2525,7 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.26.2
       index-to-position: 0.1.2
-      type-fest: 4.26.1
+      type-fest: 4.27.0
 
   parse-ms@4.0.0: {}
 
@@ -2573,7 +2573,7 @@ snapshots:
 
   prettier@3.3.3: {}
 
-  pretty-ms@9.1.0:
+  pretty-ms@9.2.0:
     dependencies:
       parse-ms: 4.0.0
 
@@ -2599,14 +2599,14 @@ snapshots:
     dependencies:
       find-up-simple: 1.0.0
       read-pkg: 9.0.1
-      type-fest: 4.26.1
+      type-fest: 4.27.0
 
   read-pkg@9.0.1:
     dependencies:
       '@types/normalize-package-data': 2.4.4
       normalize-package-data: 6.0.2
       parse-json: 8.1.0
-      type-fest: 4.26.1
+      type-fest: 4.27.0
       unicorn-magic: 0.1.0
 
   readable-stream@2.3.8:
@@ -2880,7 +2880,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@4.26.1: {}
+  type-fest@4.27.0: {}
 
   uglify-js@3.19.3:
     optional: true
