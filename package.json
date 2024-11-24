@@ -28,7 +28,7 @@
     "@types/shelljs": "0.8.15",
     "clipanion": "4.0.0-rc.4",
     "conventional-changelog-conventionalcommits": "8.0.0",
-    "husky": "9.1.6",
+    "husky": "9.1.7",
     "lint-staged": "15.2.10",
     "npm-run-all2": "7.0.1",
     "prettier": "3.3.3",
