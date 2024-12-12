@@ -1,6 +1,6 @@
 ARG BASE_IMAGE_TYPE=slim
 
-FROM ghcr.io/containerbase/sidecar:13.2.4@sha256:3734c06dc12921efd5397e4565dce1529d825aa1944a1673773c3e24f8752540 AS base
+FROM ghcr.io/containerbase/sidecar:13.4.0@sha256:c07f235d985f1d7330897ee1809dbfdc281755784c91b5e65c367ff732da3abf AS base
 
 # sidecar defaults to 1000
 USER root
@@ -75,7 +75,7 @@ RUN install-tool pipenv 2024.4.0
 RUN install-tool poetry 1.8.5
 
 # renovate: datasource=pypi
-RUN install-tool uv 0.5.7
+RUN install-tool uv 0.5.8
 
 
 # renovate: datasource=docker
