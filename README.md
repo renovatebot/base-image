@@ -1,3 +1,3 @@
-# Renovate base-image
+# Dummy branch for Renovate
 
-This repository is the base image for our [`renovatebot/renovate` Docker images](https://hub.docker.com/r/renovate/renovate).
+Don't delete me, I'm a dummy branch for Renovate to have at least two base branches.
