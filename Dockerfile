@@ -123,7 +123,7 @@ RUN install-tool node 22.12.0
 RUN install-tool pnpm 9.15.2
 
 # renovate: datasource=npm packageName=@yarnpkg/cli-dist
-RUN install-tool yarn 4.5.3
+RUN install-tool yarn 4.6.0
 
 # --------------------------------------
 # final image
