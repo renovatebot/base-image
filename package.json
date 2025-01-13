@@ -36,7 +36,7 @@
     "semantic-release": "24.2.1",
     "shelljs": "0.8.5"
   },
-  "packageManager": "pnpm@9.15.2",
+  "packageManager": "pnpm@9.15.3",
   "engines": {
     "node": "^22.11.0",
     "pnpm": "^9.0.0"
