@@ -125,6 +125,13 @@ RUN install-tool pnpm 9.15.3
 # renovate: datasource=npm packageName=@yarnpkg/cli-dist
 RUN install-tool yarn 4.6.0
 
+
+# renovate: datasource=dart-version
+RUN install-tool dart 3.6.1
+
+# renovate: datasource=flutter-version
+RUN install-tool flutter 3.27.2
+
 # --------------------------------------
 # final image
 # --------------------------------------
