@@ -1,6 +1,6 @@
 ARG BASE_IMAGE_TYPE=slim
 
-FROM ghcr.io/containerbase/sidecar:13.5.9@sha256:01b117d1d21e07b4216ddc8e2350d0557fdd28ac48ed35d3960df0903a2563ce AS base
+FROM ghcr.io/containerbase/sidecar:13.5.10@sha256:5b162ac3c84773137a3c2e327d329e9e663f8c0ff6ca3fc34a14201bcf046355 AS base
 
 # sidecar defaults to 1000
 USER root
@@ -75,7 +75,7 @@ RUN install-tool pipenv 2024.4.0
 RUN install-tool poetry 1.8.5
 
 # renovate: datasource=pypi
-RUN install-tool uv 0.5.18
+RUN install-tool uv 0.5.20
 
 
 # renovate: datasource=docker
@@ -97,7 +97,7 @@ RUN install-tool dotnet 8.0.405
 
 
 # renovate: datasource=github-releases packageName=helm/helm
-RUN install-tool helm v3.16.4
+RUN install-tool helm v3.17.0
 
 
 # renovate: datasource=github-releases packageName=jsonnet-bundler/jsonnet-bundler
