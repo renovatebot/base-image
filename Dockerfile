@@ -109,7 +109,7 @@ RUN install-tool bun 1.1.43
 
 
 # renovate: datasource=github-releases packageName=containerbase/nix-prebuild
-RUN install-tool nix 2.25.4
+RUN install-tool nix 2.25.5
 
 
 # renovate: datasource=github-releases packageName=bazelbuild/bazelisk
