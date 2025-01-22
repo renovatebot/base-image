@@ -29,7 +29,7 @@ FROM base as full-base
 ARG APT_HTTP_PROXY
 
 # renovate: datasource=java-version
-RUN install-tool java 21.0.5+11.0.LTS
+RUN install-tool java 21.0.6+7.0.LTS
 
 # renovate: datasource=gradle-version
 RUN install-tool gradle 8.12
