@@ -19,12 +19,12 @@ RUN install-tool docker v27.5.1
 # --------------------------------------
 # slim image
 # --------------------------------------
-FROM base as slim-base
+FROM base AS slim-base
 
 # --------------------------------------
 # full image
 # --------------------------------------
-FROM base as full-base
+FROM base AS full-base
 
 ARG APT_HTTP_PROXY
 
