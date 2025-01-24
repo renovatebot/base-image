@@ -51,10 +51,22 @@ jobs:
           pnpm prettier
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.arch.os }}
+    name: base (${{ matrix.arch.name }})
     needs:
       - setup
     timeout-minutes: 30
+
+    strategy:
+      fail-fast: false
+      matrix:
+        arch:
+          - name: x86_64
+            os: ubuntu-22.04
+            tag: amd64
+          - name: aarch64
+            os: ubuntu-22.04-arm
+            tag: arm64
 
     steps:
       - name: Checkout repository
