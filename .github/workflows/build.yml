@@ -69,7 +69,6 @@ jobs:
             os: ubuntu-22.04-arm
             tag: arm64
 
-
     permissions:
       contents: read
       packages: write
