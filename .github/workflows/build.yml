@@ -3,9 +3,6 @@ name: build
 on:
   workflow_call:
     inputs:
-      uid:
-        required: true
-        type: string
       cache:
         type: boolean
 
@@ -87,11 +84,15 @@ jobs:
       - name: build image
         run: docker buildx bake
 
+      - name: Docker registry login
+        if: inputs.cache
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+
       - name: cache images
         if: inputs.cache
-        run: docker buildx bake ttl
+        run: docker buildx bake build-cache
         env:
-          UID: ${{ inputs.uid }}
           ARCH: ${{ matrix.arch.tag }}
 
   success:
