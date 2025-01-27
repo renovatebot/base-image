@@ -25,15 +25,34 @@ env:
   APT_HTTP_PROXY: http://172.17.0.1:8000
 
 jobs:
+  setup:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+
+    outputs:
+      uid: ${{ steps.init.outputs.uid }}
+
+    steps:
+      - name: ⚙️ Init
+        id: init
+        run: echo "uid=$(uuidgen)" >> ${GITHUB_OUTPUT}
+
   build:
+    needs:
+      - setup
     uses: ./.github/workflows/build.yml
     permissions:
       contents: read
       checks: write
+    with:
+      uid: ${{ needs.setup.outputs.uid }}
+      cache: true
 
   release:
-    needs: [build]
-    runs-on: ubuntu-latest
+    needs:
+      - setup
+      - build
+    runs-on: ubuntu-22.04
     timeout-minutes: 120
     permissions:
       contents: write

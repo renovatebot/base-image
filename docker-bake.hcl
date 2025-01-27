@@ -11,6 +11,14 @@ variable "BASE_IMAGE_VERSION" {
   default = "unknown"
 }
 
+variable "UID" {
+  default = ""
+}
+
+variable "ARCH" {
+  default = ""
+}
+
 variable "APT_HTTP_PROXY" {
   default = ""
 }
@@ -30,11 +38,8 @@ group "push" {
   targets = [
     "push-slim",
     "push-full",
-    "push-cache-slim",
-    "push-cache-full",
   ]
 }
-
 
 target "settings" {
   context = "."
@@ -50,7 +55,9 @@ target "slim" {
   cache-from = [
     "type=registry,ref=ghcr.io/${OWNER}/${FILE}",
     "type=registry,ref=ghcr.io/${OWNER}/${FILE}:${TAG}",
-    "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}",
+    "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-slim",
+    notequal("", UID) ? "ttl.sh/${UID}/amd64/slim:1d": "",
+    notequal("", UID) ? "ttl.sh/${UID}/arm64/slim:1d": "",
   ]
 }
 
@@ -63,6 +70,23 @@ target "full" {
     "type=registry,ref=ghcr.io/${OWNER}/${FILE}:full",
     "type=registry,ref=ghcr.io/${OWNER}/${FILE}:${TAG}-full",
     "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-full",
+    notequal("", UID) ? "ttl.sh/${UID}/amd64/full:1d": "",
+    notequal("", UID) ? "ttl.sh/${UID}/arm64/full:1d": "",
+  ]
+}
+
+target "base" {
+  name = "base-${tgt}"
+  matrix = {
+    tgt = ["slim", "full"]
+  }
+  inherits = ["settings"]
+  args = {
+    BASE_IMAGE_TYPE = tgt
+  }
+  cache-from = [
+    notequal("", UID) ? "ttl.sh/${UID}/amd64/${tgt}:1d": "",
+    notequal("", UID) ? "ttl.sh/${UID}/arm64/${tgt}:1d": "",
   ]
 }
 
@@ -75,17 +99,14 @@ target "cache" {
   cache-to = ["type=inline,mode=max"]
 }
 
-target "push-cache-slim" {
-  inherits = ["slim", "cache"]
+target "push-cache" {
+  name = "push-cache-${tgt}"
+  matrix = {
+    tgt = ["slim", "full"]
+  }
+  inherits = ["${tgt}", "cache"]
   tags = [
-    "ghcr.io/${OWNER}/docker-build-cache:${FILE}",
-  ]
-}
-
-target "push-cache-full" {
-  inherits = ["full", "cache"]
-  tags = [
-    "ghcr.io/${OWNER}/docker-build-cache:${FILE}-full",
+    "ghcr.io/${OWNER}/docker-build-cache:${FILE}-${tgt}",
   ]
 }
 
@@ -103,7 +124,6 @@ target "build-full" {
     "ghcr.io/${OWNER}/${FILE}:full",
     "ghcr.io/${OWNER}/${FILE}:${TAG}-full",
   ]
-
 }
 
 target "push-slim" {
@@ -114,4 +134,15 @@ target "push-full" {
   inherits = ["build-full", "publish"]
 }
 
+target "ttl" {
+  name = "ttl-${tgt}"
+  matrix = {
+    tgt = ["slim", "full"]
+  }
+  inherits = ["base-${tgt}", "cache"]
+  tags = [
+    and(notequal("", UID), notequal("", ARCH)) ? "ttl.sh/${UID}/${ARCH}/${tgt}:1d": "",
+  ]
+  target = "${tgt}-base"
+}
 

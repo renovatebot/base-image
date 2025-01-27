@@ -21,6 +21,7 @@ class PrepareCommand extends Command {
     process.env.TAG = release;
     process.env.BASE_IMAGE_VERSION = release;
 
+    shell.echo('Building images...');
     r = shell.exec(
       'docker buildx bake --set settings.platform=linux/amd64,linux/arm64',
     );

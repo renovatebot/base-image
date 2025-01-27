@@ -16,9 +16,27 @@ permissions:
   contents: read
 
 jobs:
+  setup:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+
+    outputs:
+      uid: ${{ steps.init.outputs.uid }}
+
+    steps:
+      - name: ⚙️ Init
+        id: init
+        run: echo "uid=$(uuidgen)" >> ${GITHUB_OUTPUT}
+
   build:
-    if: ${{ github.repository_owner != github.event.pull_request.head.repo.owner.login }}
+    needs:
+      - setup
+
+    # TODO: Uncomment before merge
+    # if: ${{ github.repository_owner != github.event.pull_request.head.repo.owner.login }}
     uses: ./.github/workflows/build.yml
     permissions:
       contents: read
       checks: write
+    with:
+      uid: ${{ needs.setup.outputs.uid }}

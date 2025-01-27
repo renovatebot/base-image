@@ -2,6 +2,12 @@ name: build
 
 on:
   workflow_call:
+    inputs:
+      uid:
+        required: true
+        type: string
+      cache:
+        type: boolean
 
 env:
   OWNER: ${{ github.repository_owner }}
@@ -16,7 +22,7 @@ permissions:
 
 jobs:
   setup:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 10
     permissions:
       contents: read
@@ -32,7 +38,7 @@ jobs:
           save-cache: true
 
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs:
       - setup
     timeout-minutes: 10
@@ -82,3 +88,10 @@ jobs:
 
       - name: build image
         run: docker buildx bake
+
+      - name: cache images
+        if: inputs.cache
+        run: docker buildx bake ttl
+        env:
+          UID: ${{ inputs.uid }}
+          ARCH: ${{ matrix.arch.tag }}
