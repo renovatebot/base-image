@@ -20,8 +20,15 @@ class ReleaseCommand extends Command {
       return 0;
     }
 
-    shell.echo('Pushing docker images');
+    shell.echo('Pushing cache');
+    r = shell.exec(
+      'docker buildx bake push-cache --set settings.platform=linux/amd64,linux/arm64',
+    );
+    if (r.code) {
+      return 1;
+    }
 
+    shell.echo('Pushing docker images');
     r = shell.exec(
       'docker buildx bake --set settings.platform=linux/amd64,linux/arm64 push',
     );
