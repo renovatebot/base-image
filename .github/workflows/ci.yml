@@ -32,8 +32,7 @@ jobs:
     needs:
       - setup
 
-    # TODO: Uncomment before merge
-    # if: ${{ github.repository_owner != github.event.pull_request.head.repo.owner.login }}
+    if: ${{ github.repository_owner != github.event.pull_request.head.repo.owner.login }}
     uses: ./.github/workflows/build.yml
     permissions:
       contents: read
