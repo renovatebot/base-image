@@ -16,7 +16,6 @@
   "scripts": {
     "lint": "run-s prettier",
     "prepare": "husky",
-    "prepare:proxy": "node tools/prepare-proxy.js",
     "prettier": "prettier --cache --check --ignore-unknown '**/*.*'",
     "prettier-fix": "prettier --cache --write --ignore-unknown '**/*.*'",
     "release:prepare": "node tools/prepare-release.js",
