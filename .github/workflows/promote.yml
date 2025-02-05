@@ -29,7 +29,6 @@ jobs:
     uses: ./.github/workflows/build.yml
     permissions:
       contents: read
-      checks: write
       packages: write
     with:
       cache: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
