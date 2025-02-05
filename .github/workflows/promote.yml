@@ -60,20 +60,19 @@ jobs:
 
       - uses: sigstore/cosign-installer@dc72c7d5c4d10cd6bcb8cf6e3fd625a9e5e537da # v3.7.0
 
+      - uses: containerbase/internal-tools/setup@c010cd3e697cf6aeac5c639cf22b970f74ea5189 # v3.8.0
+        with:
+          checkout: false
+          apt-proxy: true
+
       - name: init
         run: |
           echo "OWNER=${OWNER,,}" >> ${GITHUB_ENV}
-
-      - name: 📥 Setup Node.js
-        uses: ./.github/actions/setup-node
 
       - name: Docker registry login
         if: github.ref_name == 'main' || startsWith(github.ref_name, 'maint/')
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
-
-      - name: prepare apt proxy
-        run: sudo pnpm prepare:proxy
 
       - name: semantic-release
         if: github.event_name == 'push'
