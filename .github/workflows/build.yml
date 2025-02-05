@@ -69,7 +69,7 @@ jobs:
         uses: containerbase/internal-tools/setup@fcbde3cdedad26eabf59776988e2a4b47fee98e5 # v3.7.0
 
       - name: prepare apt proxy
-        run: sudo pnpm prepare:proxy
+        run: sudo env "PATH=$PATH" pnpm prepare:proxy
 
       - name: build image
         run: docker buildx bake
