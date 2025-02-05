@@ -5,9 +5,9 @@
     [
       "@semantic-release/github",
       {
+        "assets": [],
         "releasedLabels": false,
-        "successComment": false,
-        "assets": []
+        "successCommentCondition": "<% return issue.user.type !== 'Bot'; %>"
       }
     ],
     [
