@@ -28,7 +28,9 @@
       "description": "Use `feat` semantic commit scope with breaking change for docker image deps major updates",
       "matchFileNames": ["Dockerfile"],
       "matchUpdateTypes": ["major"],
-      "commitMessagePrefix": "feat(deps)!:"
+      "commitMessagePrefix": "feat(deps)!:",
+      "addLabels": ["breaking"],
+      "dependencyDashboardApproval": false
     },
     {
       "description": "Use `feat` semantic commit scope with breaking change for some minor updates",
@@ -36,6 +38,7 @@
       "matchUpdateTypes": ["minor"],
       "matchDepNames": ["php", "python", "ruby"],
       "commitMessagePrefix": "feat(deps)!:",
+      "addLabels": ["breaking"],
       "automerge": false
     },
     {
