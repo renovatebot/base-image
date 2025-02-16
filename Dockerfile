@@ -57,7 +57,7 @@ RUN install-tool golang 1.23.6
 RUN install-tool python 3.13.2
 
 # renovate: datasource=pypi
-RUN install-tool conan 2.12.1
+RUN install-tool conan 2.12.2
 
 # renovate: datasource=pypi
 RUN install-tool hashin 1.0.3
@@ -75,7 +75,7 @@ RUN install-tool pipenv 2024.4.1
 RUN install-tool poetry 1.8.5
 
 # renovate: datasource=pypi
-RUN install-tool uv 0.5.30
+RUN install-tool uv 0.6.0
 
 
 # renovate: datasource=docker
@@ -93,11 +93,11 @@ RUN install-tool cocoapods 1.16.2
 
 
 # renovate: datasource=dotnet-version packageName=dotnet-sdk
-RUN install-tool dotnet 8.0.405
+RUN install-tool dotnet 8.0.406
 
 
 # renovate: datasource=github-releases packageName=helm/helm
-RUN install-tool helm v3.17.0
+RUN install-tool helm v3.17.1
 
 
 # renovate: datasource=github-releases packageName=jsonnet-bundler/jsonnet-bundler
@@ -109,7 +109,7 @@ RUN install-tool bun 1.2.2
 
 
 # renovate: datasource=github-releases packageName=containerbase/nix-prebuild
-RUN install-tool nix 2.26.1
+RUN install-tool nix 2.26.2
 
 
 # renovate: datasource=github-releases packageName=bazelbuild/bazelisk
@@ -127,7 +127,7 @@ RUN install-tool yarn 4.6.0
 
 
 # renovate: datasource=dart-version
-RUN install-tool dart 3.6.2
+RUN install-tool dart 3.7.0
 
 # renovate: datasource=flutter-version
 RUN install-tool flutter 3.27.4
