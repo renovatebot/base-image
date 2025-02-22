@@ -4,7 +4,7 @@
     "github>renovatebot/.github",
     "github>renovatebot/.github//merge-queue.json"
   ],
-  "baseBranches": ["$default", "next", "zzz/don-not-delete"],
+  "baseBranches": ["$default", "next"],
   "packageRules": [
     {
       "description": "Use `ci` semantic commit scope for ci deps",
@@ -52,6 +52,12 @@
       "matchBaseBranches": ["/^maint/.+/"],
       "matchUpdateTypes": ["minor"],
       "matchDepNames": ["php", "python", "ruby"],
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Require approval on next branch",
+      "matchPackageNames": ["!ghcr.io/containerbase/sidecar"],
+      "matchBaseBranches": ["next"],
       "dependencyDashboardApproval": true
     }
   ]
