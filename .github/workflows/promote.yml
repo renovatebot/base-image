@@ -16,7 +16,7 @@ permissions:
   contents: read
 
 env:
-  DRY_RUN: ${{ github.ref_name != 'main' && !startsWith(github.ref_name, 'maint/')}}
+  DRY_RUN: ${{ github.ref_name != 'main' && github.ref_name != 'next' && !startsWith(github.ref_name, 'maint/')}}
   OWNER: ${{ github.repository_owner }}
   FILE: base-image
   BUILDKIT_PROGRESS: plain
@@ -31,7 +31,7 @@ jobs:
       contents: read
       packages: write
     with:
-      cache: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+      cache: ${{ github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'next' || startsWith(github.ref_name, 'maint/')) }}
 
   release:
     needs:
@@ -69,7 +69,7 @@ jobs:
           echo "OWNER=${OWNER,,}" >> ${GITHUB_ENV}
 
       - name: Docker registry login
-        if: github.ref_name == 'main' || startsWith(github.ref_name, 'maint/')
+        if: env.DRY_RUN != 'true'
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 

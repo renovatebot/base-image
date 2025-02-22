@@ -4,7 +4,7 @@
     "github>renovatebot/.github",
     "github>renovatebot/.github//merge-queue.json"
   ],
-  "baseBranches": ["$default", "zzz/don-not-delete"],
+  "baseBranches": ["$default", "next", "zzz/don-not-delete"],
   "packageRules": [
     {
       "description": "Use `ci` semantic commit scope for ci deps",
