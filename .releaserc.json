@@ -90,6 +90,10 @@
       "name": "maint/+([0-9])?(.{+([0-9]),x}).x",
       "range": "${name.replace(/^maint\\//g, '')}"
     },
-    "main"
+    "main",
+    {
+      "name": "next",
+      "prerelease": true
+    }
   ]
 }
