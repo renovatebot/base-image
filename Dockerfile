@@ -86,7 +86,7 @@ RUN install-tool rust 1.84.1
 RUN install-tool ruby 3.3.6
 
 # renovate: datasource=rubygems
-RUN install-tool bundler 2.6.4
+RUN install-tool bundler 2.6.5
 
 # renovate: datasource=rubygems
 RUN install-tool cocoapods 1.16.2
