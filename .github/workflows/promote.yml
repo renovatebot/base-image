@@ -57,7 +57,7 @@ jobs:
           fetch-depth: 0
           filter: blob:none
 
-      - uses: sigstore/cosign-installer@c56c2d3e59e4281cc41dea2217323ba5694b171e # v3.8.0
+      - uses: sigstore/cosign-installer@d7d6bc7722e3daa8354c50bcb52f4837da5e9b6a # v3.8.1
 
       - uses: containerbase/internal-tools/setup@13682cd9a4824f96814c0b3ca545f0adaefdb202 # v3.10.2
         with:
