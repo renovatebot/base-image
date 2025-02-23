@@ -3,17 +3,22 @@ import shell from 'shelljs';
 
 class ReleaseCommand extends Command {
   release = Option.String('-r,--release', { required: true });
+  channel = Option.String('-c,--channel', { required: true });
   gitSha = Option.String('--sha');
   dryRun = Option.Boolean('-d,--dry-run');
 
   async execute() {
     /** @type {shell.ShellString} */
     let r;
-    const { release, gitSha, dryRun } = this;
+    const { release, gitSha, dryRun, channel } = this;
 
-    shell.echo(`Publish version: ${release} (${gitSha})`);
+    shell.echo(`Publish version: ${release} (${gitSha}, ${channel})`);
     process.env.TAG = release;
     process.env.BASE_IMAGE_VERSION = release;
+
+    if (channel) {
+      process.env.CHANNEL = channel;
+    }
 
     if (dryRun) {
       shell.echo('DRY-RUN: done.');
