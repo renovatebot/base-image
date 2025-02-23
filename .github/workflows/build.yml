@@ -67,6 +67,16 @@ jobs:
         with:
           apt-proxy: true
 
+      - name: compute channel
+        if: inputs.cache
+        run: |
+          if [[ "${{github.ref_name}}" == "next" ]]
+            echo "CHANNEL=${{github.ref_name}}" >> "$GITHUB_ENV"
+          elif [[ "${{startsWith(github.ref_name, 'maint/')}}" == "true" ]]
+            local ref="${{github.ref_name}}"
+            echo "CHANNEL=${ref:6}" >> "$GITHUB_ENV"
+          fi
+
       - name: build image
         run: docker buildx bake
 
