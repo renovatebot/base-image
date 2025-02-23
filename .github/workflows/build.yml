@@ -67,14 +67,6 @@ jobs:
         with:
           apt-proxy: true
 
-      - name: build image
-        run: docker buildx bake
-
-      - name: Docker registry login
-        if: inputs.cache
-        run: |
-          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
-
       - name: compute channel
         if: inputs.cache
         run: |
@@ -84,6 +76,14 @@ jobs:
             local ref="${{github.ref_name}}"
             echo "CHANNEL=${ref:6}" >> "$GITHUB_ENV"
           fi
+
+      - name: build image
+        run: docker buildx bake
+
+      - name: Docker registry login
+        if: inputs.cache
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
       - name: cache images
         if: inputs.cache
