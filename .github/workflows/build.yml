@@ -75,6 +75,16 @@ jobs:
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
+      - name: compute channel
+        if: inputs.cache
+        run: |
+          if [[ "${{github.ref_name}}" == "next" ]]
+            echo "CHANNEL=${{github.ref_name}}" >> "$GITHUB_ENV"
+          elif [[ "${{startsWith(github.ref_name, 'maint/')}}" == "true" ]]
+            local ref="${{github.ref_name}}"
+            echo "CHANNEL=${ref:6}" >> "$GITHUB_ENV"
+          fi
+
       - name: cache images
         if: inputs.cache
         run: docker buildx bake build-cache
