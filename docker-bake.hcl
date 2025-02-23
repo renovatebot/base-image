@@ -7,6 +7,9 @@ variable "FILE" {
 variable "TAG" {
   default = "latest"
 }
+variable "CHANNEL" {
+  default = ""
+}
 variable "BASE_IMAGE_VERSION" {
   default = "unknown"
 }
@@ -58,9 +61,9 @@ target "base" {
   cache-from = [
     equal("slim", tgt) ? "type=registry,ref=ghcr.io/${OWNER}/${FILE}": "type=registry,ref=ghcr.io/${OWNER}/${FILE}:${tgt}",
     equal("slim", tgt) ? "type=registry,ref=ghcr.io/${OWNER}/${FILE}:${TAG}": "type=registry,ref=ghcr.io/${OWNER}/${FILE}:${TAG}-${tgt}",
-    "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-${tgt}",
-    "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-${tgt}-amd64",
-    "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-${tgt}-arm64",
+    notequal("", CHANNEL) ? "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-${CHANNEL}-${tgt}" : "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-${tgt}",
+    notequal("", CHANNEL) ? "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-${CHANNEL}-${tgt}-amd64" : "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-${tgt}-amd64",
+    notequal("", CHANNEL) ? "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-${CHANNEL}-${tgt}-arm64" : "type=registry,ref=ghcr.io/${OWNER}/docker-build-cache:${FILE}-${tgt}-arm64",
   ]
 }
 
@@ -80,14 +83,14 @@ target "push-cache" {
   }
   inherits = ["base-${tgt}", "cache"]
   tags = [
-    "ghcr.io/${OWNER}/docker-build-cache:${FILE}-${tgt}",
+    notequal("", CHANNEL) ? "ghcr.io/${OWNER}/docker-build-cache:${FILE}-${CHANNEL}-${tgt}" : "ghcr.io/${OWNER}/docker-build-cache:${FILE}-${tgt}",
   ]
 }
 
 target "build-slim" {
   inherits = ["base-slim"]
   tags = [
-    "ghcr.io/${OWNER}/${FILE}",
+    notequal("", CHANNEL) ? "ghcr.io/${OWNER}/${FILE}:${CHANNEL}" : "ghcr.io/${OWNER}/${FILE}",
     "ghcr.io/${OWNER}/${FILE}:${TAG}",
   ]
 }
@@ -95,7 +98,7 @@ target "build-slim" {
 target "build-full" {
   inherits = ["base-full"]
   tags = [
-    "ghcr.io/${OWNER}/${FILE}:full",
+    notequal("", CHANNEL) ? "ghcr.io/${OWNER}/${FILE}:${CHANNEL}-full" : "ghcr.io/${OWNER}/${FILE}:full",
     "ghcr.io/${OWNER}/${FILE}:${TAG}-full",
   ]
 }
@@ -115,7 +118,7 @@ target "build-cache" {
   }
   inherits = ["base-${tgt}", "cache"]
   tags = [
-    notequal("", ARCH) ? "ghcr.io/${OWNER}/docker-build-cache:${FILE}-${tgt}-${ARCH}": "",
+    notequal("", ARCH) ? (notequal("", CHANNEL) ? "ghcr.io/${OWNER}/docker-build-cache:${FILE}-${CHANNEL}-${tgt}-${ARCH}" : "ghcr.io/${OWNER}/docker-build-cache:${FILE}-${tgt}-${ARCH}"): "",
   ]
   target = "${tgt}-base"
 }
