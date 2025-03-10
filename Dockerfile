@@ -105,7 +105,7 @@ RUN install-tool jb v0.6.0
 
 
 # renovate: datasource=npm
-RUN install-tool bun 1.2.3
+RUN install-tool bun 1.2.4
 
 
 # renovate: datasource=github-releases packageName=containerbase/nix-prebuild
