@@ -50,7 +50,7 @@ RUN install-tool composer 2.8.6
 
 
 # renovate: datasource=golang-version
-RUN install-tool golang 1.24.1
+RUN install-tool golang 1.24.2
 
 
 # renovate: datasource=github-releases packageName=containerbase/python-prebuild
