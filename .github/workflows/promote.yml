@@ -46,7 +46,7 @@ jobs:
 
     steps:
       - name: docker-config
-        uses: containerbase/internal-tools@33eafe4e234021f42d22277abebb4712e3cf6abc # v3.10.21
+        uses: containerbase/internal-tools@58012bf37e61c96af489185b723fe67a7b9b5c07 # v3.10.23
         with:
           command: docker-config
 
@@ -59,7 +59,7 @@ jobs:
 
       - uses: sigstore/cosign-installer@d7d6bc7722e3daa8354c50bcb52f4837da5e9b6a # v3.8.1
 
-      - uses: containerbase/internal-tools/setup@33eafe4e234021f42d22277abebb4712e3cf6abc # v3.10.21
+      - uses: containerbase/internal-tools/setup@58012bf37e61c96af489185b723fe67a7b9b5c07 # v3.10.23
         with:
           checkout: false
           apt-proxy: true
