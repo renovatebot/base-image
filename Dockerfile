@@ -113,7 +113,7 @@ RUN install-tool nix 2.28.2
 
 
 # renovate: datasource=github-releases packageName=jetify-com/devbox
-RUN install-tool devbox 0.14.1
+RUN install-tool devbox 0.14.2
 
 
 # renovate: datasource=github-releases packageName=bazelbuild/bazelisk
