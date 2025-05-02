@@ -14,7 +14,7 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image
 
 
 # renovate: datasource=github-releases packageName=moby/moby
-RUN install-tool docker v28.0.0
+RUN install-tool docker v28.1.1
 
 # --------------------------------------
 # slim image
@@ -29,75 +29,75 @@ FROM base AS full-base
 ARG APT_HTTP_PROXY
 
 # renovate: datasource=java-version
-RUN install-tool java 21.0.6+7.0.LTS
+RUN install-tool java 21.0.7+6.0.LTS
 
 # renovate: datasource=gradle-version
-RUN install-tool gradle 8.12.1
+RUN install-tool gradle 8.14
 
 
 # renovate: datasource=github-releases packageName=containerbase/erlang-prebuild versioning=docker
-RUN install-tool erlang 27.2.3.0
+RUN install-tool erlang 27.3.3.0
 
 # renovate: datasource=github-releases packageName=elixir-lang/elixir
-RUN install-tool elixir v1.18.2
+RUN install-tool elixir v1.18.3
 
 
 # renovate: datasource=github-releases packageName=containerbase/php-prebuild
-RUN install-tool php 8.4.4
+RUN install-tool php 8.4.6
 
 # renovate: datasource=github-releases packageName=containerbase/composer-prebuild
-RUN install-tool composer 2.8.5
+RUN install-tool composer 2.8.8
 
 
 # renovate: datasource=golang-version
-RUN install-tool golang 1.24.0
+RUN install-tool golang 1.24.2
 
 
 # renovate: datasource=github-releases packageName=containerbase/python-prebuild
-RUN install-tool python 3.13.2
+RUN install-tool python 3.13.3
 
 # renovate: datasource=pypi
-RUN install-tool conan 2.12.2
+RUN install-tool conan 2.16.1
 
 # renovate: datasource=pypi
 RUN install-tool hashin 1.0.3
 
 # renovate: datasource=pypi
-RUN install-tool pdm 2.22.3
+RUN install-tool pdm 2.24.1
 
 # renovate: datasource=pypi
 RUN install-tool pip-tools 7.4.1
 
 # renovate: datasource=pypi
-RUN install-tool pipenv 2024.4.1
+RUN install-tool pipenv 2025.0.1
 
 # renovate: datasource=pypi
-RUN install-tool poetry 2.1.1
+RUN install-tool poetry 2.1.2
 
 # renovate: datasource=pypi
-RUN install-tool uv 0.6.2
+RUN install-tool uv 0.7.2
 
 
 # renovate: datasource=docker
-RUN install-tool rust 1.85.0
+RUN install-tool rust 1.86.0
 
 
 # renovate: datasource=github-releases packageName=containerbase/ruby-prebuild
-RUN install-tool ruby 3.4.2
+RUN install-tool ruby 3.4.3
 
 # renovate: datasource=rubygems
-RUN install-tool bundler 2.6.5
+RUN install-tool bundler 2.6.8
 
 # renovate: datasource=rubygems
 RUN install-tool cocoapods 1.16.2
 
 
 # renovate: datasource=dotnet-version packageName=dotnet-sdk
-RUN install-tool dotnet 9.0.200
+RUN install-tool dotnet 9.0.203
 
 
 # renovate: datasource=github-releases packageName=helm/helm
-RUN install-tool helm v3.17.1
+RUN install-tool helm v3.17.3
 
 
 # renovate: datasource=github-releases packageName=jsonnet-bundler/jsonnet-bundler
@@ -105,32 +105,36 @@ RUN install-tool jb v0.6.0
 
 
 # renovate: datasource=npm
-RUN install-tool bun 1.2.2
+RUN install-tool bun 1.2.10
 
 
 # renovate: datasource=github-releases packageName=containerbase/nix-prebuild
-RUN install-tool nix 2.26.2
+RUN install-tool nix 2.28.3
+
+
+# renovate: datasource=github-releases packageName=jetify-com/devbox
+RUN install-tool devbox 0.14.2
 
 
 # renovate: datasource=github-releases packageName=bazelbuild/bazelisk
-RUN install-tool bazelisk v1.25.0
+RUN install-tool bazelisk v1.26.0
 
 
 # renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
-RUN install-tool node 22.14.0
+RUN install-tool node 22.15.0
 
 # renovate: datasource=npm
-RUN install-tool pnpm 10.4.0
+RUN install-tool pnpm 10.9.0
 
 # renovate: datasource=npm packageName=@yarnpkg/cli-dist
-RUN install-tool yarn 4.6.0
+RUN install-tool yarn 4.9.1
 
 
 # renovate: datasource=dart-version
-RUN install-tool dart 3.7.0
+RUN install-tool dart 3.7.3
 
 # renovate: datasource=flutter-version
-RUN install-tool flutter 3.27.4
+RUN install-tool flutter 3.29.3
 
 # --------------------------------------
 # final image
