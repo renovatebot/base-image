@@ -73,7 +73,7 @@ jobs:
           if [[ "${{github.ref_name}}" == "next" ]]; then
             echo "CHANNEL=${{github.ref_name}}" >> "$GITHUB_ENV"
           elif [[ "${{startsWith(github.ref_name, 'maint/')}}" == "true" ]]; then
-            local ref="${{github.ref_name}}"
+            ref="${{github.ref_name}}"
             echo "CHANNEL=${ref:6}" >> "$GITHUB_ENV"
           fi
 
