@@ -17,7 +17,7 @@ class ReleaseCommand extends Command {
     process.env.BASE_IMAGE_VERSION = release;
 
     if (channel) {
-      process.env.CHANNEL = channel;
+      process.env.CHANNEL = channel.replace('maint/', '');
     }
 
     if (dryRun) {
