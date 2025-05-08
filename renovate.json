@@ -56,7 +56,7 @@
     },
     {
       "description": "Require approval on next branch",
-      "matchPackageNames": ["!ghcr.io/containerbase/sidecar"],
+      "matchPackageNames": ["*"],
       "matchBaseBranches": ["next"],
       "dependencyDashboardApproval": true
     }
