@@ -23,7 +23,7 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: containerbase/internal-tools/setup@a21f5fda8f179491bc6768c2360ed9fc6d280313 # v3.10.34
+      - uses: containerbase/internal-tools/setup@a2739c77de4cbf44c896d30ed351800214ba57c1 # v3.10.35
         with:
           save-cache: true
 
@@ -34,7 +34,7 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: containerbase/internal-tools/setup@a21f5fda8f179491bc6768c2360ed9fc6d280313 # v3.10.34
+      - uses: containerbase/internal-tools/setup@a2739c77de4cbf44c896d30ed351800214ba57c1 # v3.10.35
 
       - name: lint
         run: |
@@ -63,7 +63,7 @@ jobs:
       packages: write
 
     steps:
-      - uses: containerbase/internal-tools/setup@a21f5fda8f179491bc6768c2360ed9fc6d280313 # v3.10.34
+      - uses: containerbase/internal-tools/setup@a2739c77de4cbf44c896d30ed351800214ba57c1 # v3.10.35
         with:
           apt-proxy: true
 
