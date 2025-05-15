@@ -77,6 +77,9 @@ RUN install-tool poetry 2.1.3
 # renovate: datasource=pypi
 RUN install-tool uv 0.7.3
 
+# renovate: datasource=pypi
+RUN install-tool copier 9.3.1
+
 
 # renovate: datasource=docker
 RUN install-tool rust 1.86.0
