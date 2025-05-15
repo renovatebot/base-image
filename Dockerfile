@@ -79,7 +79,7 @@ RUN install-tool uv 0.7.4
 
 
 # renovate: datasource=docker
-RUN install-tool rust 1.86.0
+RUN install-tool rust 1.87.0
 
 
 # renovate: datasource=github-releases packageName=containerbase/ruby-prebuild
