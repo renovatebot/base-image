@@ -22,7 +22,7 @@
     "release:publish": "node tools/publish-release.js"
   },
   "devDependencies": {
-    "@semantic-release/exec": "7.0.3",
+    "@semantic-release/exec": "7.1.0",
     "@types/node": "22.15.17",
     "@types/shelljs": "0.8.16",
     "clipanion": "4.0.0-rc.4",
