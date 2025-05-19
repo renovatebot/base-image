@@ -1,6 +1,6 @@
 ARG BASE_IMAGE_TYPE=slim
 
-FROM ghcr.io/containerbase/sidecar:13.8.26@sha256:d290a5b8d7f2fd0e2f06a01e9e96e2cca853875d4dac2b434809f4d9a435005f AS base
+FROM ghcr.io/containerbase/sidecar:13.8.27@sha256:20795f231a492b67ab73c910826aa6061031c7eb249666887f06d00785448450 AS base
 
 # sidecar defaults to 1000
 USER root
@@ -78,11 +78,11 @@ RUN install-tool pipenv 2025.0.2
 RUN install-tool poetry 2.1.3
 
 # renovate: datasource=pypi
-RUN install-tool uv 0.7.3
+RUN install-tool uv 0.7.5
 
 
 # renovate: datasource=docker
-RUN install-tool rust 1.86.0
+RUN install-tool rust 1.87.0
 
 
 # renovate: datasource=github-releases packageName=containerbase/ruby-prebuild
@@ -108,7 +108,7 @@ RUN install-tool jb v0.6.0
 
 
 # renovate: datasource=npm
-RUN install-tool bun 1.2.12
+RUN install-tool bun 1.2.13
 
 
 # renovate: datasource=github-releases packageName=containerbase/nix-prebuild
