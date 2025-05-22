@@ -1,6 +1,6 @@
 ARG BASE_IMAGE_TYPE=slim
 
-FROM ghcr.io/containerbase/sidecar:13.8.27@sha256:20795f231a492b67ab73c910826aa6061031c7eb249666887f06d00785448450 AS base
+FROM ghcr.io/containerbase/sidecar:13.8.29@sha256:93f13e999a45b557e6b6ce718b087e2e7ada8a7b3e70058e49e63a7345f9f6a2 AS base
 
 # sidecar defaults to 1000
 USER root
@@ -32,14 +32,14 @@ ARG APT_HTTP_PROXY
 RUN install-tool java 21.0.7+6.0.LTS
 
 # renovate: datasource=gradle-version
-RUN install-tool gradle 8.14
+RUN install-tool gradle 8.14.1
 
 
 # renovate: datasource=github-releases packageName=containerbase/erlang-prebuild versioning=docker
-RUN install-tool erlang 27.3.3.0
+RUN install-tool erlang 27.3.4.0
 
 # renovate: datasource=github-releases packageName=elixir-lang/elixir
-RUN install-tool elixir v1.18.3
+RUN install-tool elixir v1.18.4
 
 
 # renovate: datasource=github-releases packageName=containerbase/php-prebuild
@@ -78,7 +78,7 @@ RUN install-tool pipenv 2025.0.2
 RUN install-tool poetry 2.1.3
 
 # renovate: datasource=pypi
-RUN install-tool uv 0.7.5
+RUN install-tool uv 0.7.6
 
 
 # renovate: datasource=docker
@@ -100,7 +100,7 @@ RUN install-tool dotnet 9.0.300
 
 
 # renovate: datasource=github-releases packageName=helm/helm
-RUN install-tool helm v3.17.3
+RUN install-tool helm v3.18.0
 
 
 # renovate: datasource=github-releases packageName=jsonnet-bundler/jsonnet-bundler
@@ -124,17 +124,17 @@ RUN install-tool bazelisk v1.26.0
 
 
 # renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
-RUN install-tool node 22.15.1
+RUN install-tool node 22.16.0
 
 # renovate: datasource=npm
-RUN install-tool pnpm 10.10.0
+RUN install-tool pnpm 10.11.0
 
 # renovate: datasource=npm packageName=@yarnpkg/cli-dist
 RUN install-tool yarn 4.9.1
 
 
 # renovate: datasource=dart-version
-RUN install-tool dart 3.7.3
+RUN install-tool dart 3.8.0
 
 # renovate: datasource=flutter-version
 RUN install-tool flutter 3.29.3
