@@ -112,7 +112,7 @@ RUN install-tool bun 1.2.13
 
 
 # renovate: datasource=github-releases packageName=containerbase/nix-prebuild
-RUN install-tool nix 2.28.3
+RUN install-tool nix 2.29.0
 
 
 # renovate: datasource=github-releases packageName=jetify-com/devbox
