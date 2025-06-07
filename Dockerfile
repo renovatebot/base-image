@@ -43,7 +43,7 @@ RUN install-tool elixir v1.18.4
 
 
 # renovate: datasource=github-releases packageName=containerbase/php-prebuild
-RUN install-tool php 8.4.7
+RUN install-tool php 8.4.8
 
 # renovate: datasource=github-releases packageName=containerbase/composer-prebuild
 RUN install-tool composer 2.8.9
