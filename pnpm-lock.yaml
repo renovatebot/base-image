@@ -12,8 +12,8 @@ importers:
         specifier: 7.1.0
         version: 7.1.0(semantic-release@24.2.5)
       '@types/node':
-        specifier: 22.15.33
-        version: 22.15.33
+        specifier: 22.15.34
+        version: 22.15.34
       '@types/shelljs':
         specifier: 0.8.16
         version: 0.8.16
@@ -190,8 +190,8 @@ packages:
   '@types/minimatch@5.1.2':
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
 
-  '@types/node@22.15.33':
-    resolution: {integrity: sha512-wzoocdnnpSxZ+6CjW4ADCK1jVmd1S/J3ArNWfn8FDDQtRm8dkDg7TA+mvek2wNrfCgwuZxqEOiB9B1XCJ6+dbw==}
+  '@types/node@22.15.34':
+    resolution: {integrity: sha512-8Y6E5WUupYy1Dd0II32BsWAx5MWdcnRd8L84Oys3veg1YrYtNtzgO4CFhiBg6MDSjk7Ay36HYOnU7/tuOzIzcw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -1665,11 +1665,11 @@ snapshots:
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 22.15.33
+      '@types/node': 22.15.34
 
   '@types/minimatch@5.1.2': {}
 
-  '@types/node@22.15.33':
+  '@types/node@22.15.34':
     dependencies:
       undici-types: 6.21.0
 
@@ -1678,7 +1678,7 @@ snapshots:
   '@types/shelljs@0.8.16':
     dependencies:
       '@types/glob': 7.2.0
-      '@types/node': 22.15.33
+      '@types/node': 22.15.34
 
   agent-base@7.1.3: {}
 
