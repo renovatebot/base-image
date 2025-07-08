@@ -24,7 +24,7 @@
   "devDependencies": {
     "@semantic-release/exec": "7.1.0",
     "@types/node": "22.16.0",
-    "@types/shelljs": "0.8.16",
+    "@types/shelljs": "0.8.17",
     "clipanion": "4.0.0-rc.4",
     "conventional-changelog-conventionalcommits": "9.0.0",
     "husky": "9.1.7",
