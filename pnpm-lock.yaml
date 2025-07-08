@@ -12,8 +12,8 @@ importers:
         specifier: 7.1.0
         version: 7.1.0(semantic-release@24.2.6)
       '@types/node':
-        specifier: 22.15.34
-        version: 22.15.34
+        specifier: 22.15.35
+        version: 22.15.35
       '@types/shelljs':
         specifier: 0.8.16
         version: 0.8.16
@@ -199,8 +199,8 @@ packages:
     resolution: {integrity: sha512-zmPitbQ8+6zNutpwgcQuLcsEpn/Cj54Kbn7L5pX0Os5kdWplB7xPgEh/g+SWOB/qmows2gpuCaPyduq8ZZRnxA==}
     deprecated: This is a stub types definition. minimatch provides its own type definitions, so you do not need this installed.
 
-  '@types/node@22.15.34':
-    resolution: {integrity: sha512-8Y6E5WUupYy1Dd0II32BsWAx5MWdcnRd8L84Oys3veg1YrYtNtzgO4CFhiBg6MDSjk7Ay36HYOnU7/tuOzIzcw==}
+  '@types/node@22.15.35':
+    resolution: {integrity: sha512-stV91mHxlWpDksiUiivmFfQzjy2JLlb2NUTxKipiANEbxBZsdbDU9fSrT7SHY4uoCXAxYfJZVasn3x2/hqpd3g==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -1678,13 +1678,13 @@ snapshots:
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 6.0.0
-      '@types/node': 22.15.34
+      '@types/node': 22.15.35
 
   '@types/minimatch@6.0.0':
     dependencies:
       minimatch: 10.0.3
 
-  '@types/node@22.15.34':
+  '@types/node@22.15.35':
     dependencies:
       undici-types: 6.21.0
 
@@ -1693,7 +1693,7 @@ snapshots:
   '@types/shelljs@0.8.16':
     dependencies:
       '@types/glob': 7.2.0
-      '@types/node': 22.15.34
+      '@types/node': 22.15.35
 
   agent-base@7.1.3: {}
 
