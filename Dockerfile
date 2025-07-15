@@ -86,7 +86,7 @@ RUN install-tool rust 1.88.0
 
 
 # renovate: datasource=github-releases packageName=containerbase/ruby-prebuild
-RUN install-tool ruby 3.4.4
+RUN install-tool ruby 3.4.5
 
 # renovate: datasource=rubygems
 RUN install-tool bundler 2.6.9
