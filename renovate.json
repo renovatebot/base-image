@@ -4,7 +4,7 @@
     "github>renovatebot/.github",
     "github>renovatebot/.github//merge-queue.json"
   ],
-  "baseBranches": ["$default", "next"],
+  "baseBranchPatterns": ["$default", "next", "maint/10.x"],
   "packageRules": [
     {
       "description": "Use `ci` semantic commit scope for ci deps",
@@ -56,7 +56,7 @@
     },
     {
       "description": "Require approval on next branch",
-      "matchPackageNames": ["!ghcr.io/containerbase/sidecar"],
+      "matchPackageNames": ["*"],
       "matchBaseBranches": ["next"],
       "dependencyDashboardApproval": true
     }
