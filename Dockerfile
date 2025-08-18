@@ -54,7 +54,7 @@ RUN install-tool golang 1.25.0
 
 
 # renovate: datasource=github-releases packageName=containerbase/python-prebuild
-RUN install-tool python 3.13.6
+RUN install-tool python 3.13.7
 
 # renovate: datasource=pypi
 RUN install-tool conan 2.19.1
