@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@semantic-release/github':
+    hash: aae590bd289770196ad237250a80b6b0b583526b3a0c6056497dd80561d798d3
+    path: patches/@semantic-release__github.patch
+
 importers:
 
   .:
@@ -1662,7 +1667,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@semantic-release/github@11.0.4(semantic-release@24.2.7)':
+  '@semantic-release/github@11.0.4(patch_hash=aae590bd289770196ad237250a80b6b0b583526b3a0c6056497dd80561d798d3)(semantic-release@24.2.7)':
     dependencies:
       '@octokit/core': 7.0.3
       '@octokit/plugin-paginate-rest': 13.1.1(@octokit/core@7.0.3)
@@ -2607,7 +2612,7 @@ snapshots:
     dependencies:
       '@semantic-release/commit-analyzer': 13.0.1(semantic-release@24.2.7)
       '@semantic-release/error': 4.0.0
-      '@semantic-release/github': 11.0.4(semantic-release@24.2.7)
+      '@semantic-release/github': 11.0.4(patch_hash=aae590bd289770196ad237250a80b6b0b583526b3a0c6056497dd80561d798d3)(semantic-release@24.2.7)
       '@semantic-release/npm': 12.0.2(semantic-release@24.2.7)
       '@semantic-release/release-notes-generator': 14.0.3(semantic-release@24.2.7)
       aggregate-error: 5.0.0
