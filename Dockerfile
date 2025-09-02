@@ -130,7 +130,7 @@ RUN install-tool node 22.19.0
 RUN install-tool pnpm 10.15.0
 
 # renovate: datasource=npm packageName=@yarnpkg/cli-dist
-RUN install-tool yarn 4.9.3
+RUN install-tool yarn 4.9.4
 
 
 # renovate: datasource=dart-version
