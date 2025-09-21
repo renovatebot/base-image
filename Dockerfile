@@ -75,7 +75,7 @@ RUN install-tool pip-tools 7.5.0
 RUN install-tool pipenv 2025.0.4
 
 # renovate: datasource=pypi
-RUN install-tool poetry 2.2.0
+RUN install-tool poetry 2.2.1
 
 # renovate: datasource=pypi
 RUN install-tool uv 0.8.19
