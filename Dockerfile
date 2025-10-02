@@ -137,7 +137,7 @@ RUN install-tool yarn 4.10.3
 RUN install-tool dart 3.9.4
 
 # renovate: datasource=flutter-version
-RUN install-tool flutter 3.35.3
+RUN install-tool flutter 3.35.5
 
 # --------------------------------------
 # final image
