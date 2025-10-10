@@ -136,7 +136,7 @@ RUN install-tool yarn 4.10.3
 # renovate: datasource=dart-version
 RUN install-tool dart 3.9.4
 
-# renovate: datasource=flutter-version
+# renovate: datasource=github-releases packageName=containerbase/flutter-prebuild
 RUN install-tool flutter 3.35.5
 
 # --------------------------------------
