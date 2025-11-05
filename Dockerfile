@@ -28,8 +28,9 @@ FROM base AS full-base
 
 ARG APT_HTTP_PROXY
 
-# renovate: datasource=java-version
-RUN install-tool java 21.0.9+10.0.LTS
+# linux x64 is usually released after aarch64
+# renovate: datasource=java-version packageName=java?os=linux&architecture=x64
+RUN install-tool java 25.0.1+8.0.LTS
 
 # renovate: datasource=gradle-version
 RUN install-tool gradle 9.2.0
