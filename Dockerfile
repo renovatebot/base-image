@@ -47,7 +47,7 @@ RUN install-tool elixir v1.19.3
 RUN install-tool php 8.4.14
 
 # renovate: datasource=github-releases packageName=containerbase/composer-prebuild
-RUN install-tool composer 2.8.12
+RUN install-tool composer 2.9.1
 
 
 # renovate: datasource=golang-version
