@@ -63,6 +63,16 @@ jobs:
       packages: write
 
     steps:
+      - run: df -h
+
+      # Ensure docker is using /mnt/docker for data storage on x86_64 runners to avoid disk space issues
+      - name: Prepare docker
+        if: matrix.arch.name == 'x86_64'
+        run: |
+          echo '{"data-root": "/mnt/docker"}' | sudo tee /etc/docker/daemon.json
+          sudo systemctl restart docker
+          docker info
+
       - uses: containerbase/internal-tools/setup@cafacb746b412fd28fc671c1fc1b8a20ea2e34e9 # v3.14.18
         with:
           apt-proxy: true
@@ -90,6 +100,8 @@ jobs:
         run: docker buildx bake build-cache
         env:
           ARCH: ${{ matrix.arch.tag }}
+
+      - run: df -h
 
   success:
     needs:
