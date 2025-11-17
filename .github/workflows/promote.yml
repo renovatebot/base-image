@@ -50,10 +50,8 @@ jobs:
       # Ensure docker is using /mnt/docker for data storage on x86_64 runners to avoid disk space issues
       - name: Prepare docker
         run: |
-          sudo cat /etc/docker/daemon.json
-          sudo systemctl stop docker
           echo '{"data-root": "/mnt/docker"}' | sudo tee /etc/docker/daemon.json
-          sudo systemctl start docker
+          sudo systemctl restart docker
           docker info
 
       - name: docker-config
