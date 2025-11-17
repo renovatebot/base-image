@@ -45,6 +45,8 @@ jobs:
       id-token: write
 
     steps:
+      - run: df -h
+
       - name: docker-config
         uses: containerbase/internal-tools@cafacb746b412fd28fc671c1fc1b8a20ea2e34e9 # v3.14.18
         with:
@@ -78,3 +80,5 @@ jobs:
         run: pnpm semantic-release --dry-run ${{env.DRY_RUN}} --ci ${{env.DRY_RUN != 'true'}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: df -h

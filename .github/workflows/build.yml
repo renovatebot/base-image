@@ -63,6 +63,8 @@ jobs:
       packages: write
 
     steps:
+      - run: df -h
+
       - uses: containerbase/internal-tools/setup@cafacb746b412fd28fc671c1fc1b8a20ea2e34e9 # v3.14.18
         with:
           apt-proxy: true
@@ -90,6 +92,8 @@ jobs:
         run: docker buildx bake build-cache
         env:
           ARCH: ${{ matrix.arch.tag }}
+
+      - run: df -h
 
   success:
     needs:
