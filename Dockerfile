@@ -128,7 +128,7 @@ RUN install-tool bazelisk v1.27.0
 RUN install-tool node 24.12.0
 
 # renovate: datasource=npm
-RUN install-tool pnpm 10.24.0
+RUN install-tool pnpm 10.25.0
 
 # renovate: datasource=npm packageName=@yarnpkg/cli-dist
 RUN install-tool yarn 4.12.0
