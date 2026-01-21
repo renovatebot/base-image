@@ -23,7 +23,7 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: containerbase/internal-tools/setup@b98258f3a3125b4a40dba4e2f7782cccd00515e4 # v3.10.74
+      - uses: containerbase/internal-tools/setup@b44956ac3ea16b98bf0838d51f0ca6a3f17e4a58 # v3.14.53
         with:
           save-cache: true
 
@@ -34,7 +34,7 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: containerbase/internal-tools/setup@b98258f3a3125b4a40dba4e2f7782cccd00515e4 # v3.10.74
+      - uses: containerbase/internal-tools/setup@b44956ac3ea16b98bf0838d51f0ca6a3f17e4a58 # v3.14.53
 
       - name: lint
         run: |
@@ -63,7 +63,17 @@ jobs:
       packages: write
 
     steps:
-      - uses: containerbase/internal-tools/setup@b98258f3a3125b4a40dba4e2f7782cccd00515e4 # v3.10.74
+      - run: df -h
+
+      # Ensure docker is using /mnt/docker for data storage on x86_64 runners to avoid disk space issues
+      - name: Prepare docker
+        if: matrix.arch.name == 'x86_64'
+        run: |
+          echo '{"data-root": "/mnt/docker"}' | sudo tee /etc/docker/daemon.json
+          sudo systemctl restart docker
+          docker info
+
+      - uses: containerbase/internal-tools/setup@b44956ac3ea16b98bf0838d51f0ca6a3f17e4a58 # v3.14.53
         with:
           apt-proxy: true
 
@@ -90,6 +100,8 @@ jobs:
         run: docker buildx bake build-cache
         env:
           ARCH: ${{ matrix.arch.tag }}
+
+      - run: df -h
 
   success:
     needs:

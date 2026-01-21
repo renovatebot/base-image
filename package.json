@@ -23,21 +23,21 @@
   },
   "devDependencies": {
     "@semantic-release/exec": "7.1.0",
-    "@types/node": "22.17.1",
-    "@types/shelljs": "0.8.17",
+    "@types/node": "22.19.6",
+    "@types/shelljs": "0.10.0",
     "clipanion": "4.0.0-rc.4",
     "conventional-changelog-conventionalcommits": "9.1.0",
     "husky": "9.1.7",
-    "lint-staged": "16.1.5",
+    "lint-staged": "16.2.7",
     "npm-run-all2": "8.0.4",
-    "prettier": "3.6.2",
-    "prettier-plugin-packagejson": "2.5.19",
-    "semantic-release": "24.2.7",
+    "prettier": "3.7.4",
+    "prettier-plugin-packagejson": "2.5.21",
+    "semantic-release": "25.0.2",
     "shelljs": "0.10.0"
   },
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@10.28.0",
   "engines": {
-    "node": "^22.11.0",
+    "node": "^22.11.0 || >=24.10.0",
     "pnpm": "^10.0.0"
   }
 }

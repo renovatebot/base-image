@@ -45,21 +45,30 @@ jobs:
       id-token: write
 
     steps:
+      - run: df -h
+
+      # Ensure docker is using /mnt/docker for data storage on x86_64 runners to avoid disk space issues
+      - name: Prepare docker
+        run: |
+          echo '{"data-root": "/mnt/docker"}' | sudo tee /etc/docker/daemon.json
+          sudo systemctl restart docker
+          docker info
+
       - name: docker-config
-        uses: containerbase/internal-tools@b98258f3a3125b4a40dba4e2f7782cccd00515e4 # v3.10.74
+        uses: containerbase/internal-tools@b44956ac3ea16b98bf0838d51f0ca6a3f17e4a58 # v3.14.53
         with:
           command: docker-config
 
       # full checkout for semantic-release
-      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           show-progress: false
           fetch-depth: 0
           filter: blob:none
 
-      - uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 # v3.9.2
+      - uses: sigstore/cosign-installer@faadad0cce49287aee09b3a48701e75088a2c6ad # v4.0.0
 
-      - uses: containerbase/internal-tools/setup@b98258f3a3125b4a40dba4e2f7782cccd00515e4 # v3.10.74
+      - uses: containerbase/internal-tools/setup@b44956ac3ea16b98bf0838d51f0ca6a3f17e4a58 # v3.14.53
         with:
           checkout: false
           apt-proxy: true
@@ -78,3 +87,5 @@ jobs:
         run: pnpm semantic-release --dry-run ${{env.DRY_RUN}} --ci ${{env.DRY_RUN != 'true'}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: df -h
