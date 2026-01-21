@@ -56,8 +56,8 @@
     },
     {
       "description": "Require approval on next branch",
-      "matchPackageNames": ["*"],
       "matchBaseBranches": ["next"],
+      "schedule": null,
       "dependencyDashboardApproval": true
     }
   ]
