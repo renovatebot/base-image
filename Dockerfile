@@ -47,7 +47,7 @@ RUN install-tool elixir v1.19.5
 RUN install-tool php 8.5.2
 
 # renovate: datasource=github-releases packageName=containerbase/composer-prebuild
-RUN install-tool composer 2.9.3
+RUN install-tool composer 2.9.4
 
 
 # renovate: datasource=golang-version
@@ -61,13 +61,13 @@ RUN install-tool python 3.14.2
 RUN install-tool conan 2.24.0
 
 # renovate: datasource=pypi
-RUN install-tool copier 9.11.2
+RUN install-tool copier 9.11.3
 
 # renovate: datasource=pypi
 RUN install-tool hashin 1.0.5
 
 # renovate: datasource=pypi
-RUN install-tool pdm 2.26.5
+RUN install-tool pdm 2.26.6
 
 # renovate: datasource=pypi
 RUN install-tool pip-tools 7.5.2
@@ -79,11 +79,11 @@ RUN install-tool pipenv 2026.0.3
 RUN install-tool poetry 2.3.1
 
 # renovate: datasource=pypi
-RUN install-tool uv 0.9.26
+RUN install-tool uv 0.9.27
 
 
 # renovate: datasource=docker
-RUN install-tool rust 1.92.0
+RUN install-tool rust 1.93.0
 
 
 # renovate: datasource=github-releases packageName=containerbase/ruby-prebuild
@@ -101,7 +101,7 @@ RUN install-tool dotnet 10.0.102
 
 
 # renovate: datasource=github-releases packageName=helm/helm
-RUN install-tool helm v4.0.5
+RUN install-tool helm v4.1.0
 
 
 # renovate: datasource=github-releases packageName=jsonnet-bundler/jsonnet-bundler
@@ -128,17 +128,20 @@ RUN install-tool bazelisk v1.28.1
 RUN install-tool node 24.13.0
 
 # renovate: datasource=npm
-RUN install-tool pnpm 10.28.0
+RUN install-tool pnpm 10.28.1
 
 # renovate: datasource=npm packageName=@yarnpkg/cli-dist
 RUN install-tool yarn 4.12.0
 
 
 # renovate: datasource=dart-version
-RUN install-tool dart 3.10.7
+RUN install-tool dart 3.10.8
 
 # renovate: datasource=github-releases packageName=containerbase/flutter-prebuild
 RUN install-tool flutter 3.38.7
+
+# renovate: datasource=github-releases packageName=carvel-dev/vendir
+RUN install-tool vendir v0.45.0
 
 # --------------------------------------
 # final image

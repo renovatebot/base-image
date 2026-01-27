@@ -55,12 +55,12 @@ jobs:
           docker info
 
       - name: docker-config
-        uses: containerbase/internal-tools@b44956ac3ea16b98bf0838d51f0ca6a3f17e4a58 # v3.14.53
+        uses: containerbase/internal-tools@cf266a36ac247b4252860db20f554594213383c0 # v3.14.56
         with:
           command: docker-config
 
       # full checkout for semantic-release
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           show-progress: false
           fetch-depth: 0
@@ -68,7 +68,7 @@ jobs:
 
       - uses: sigstore/cosign-installer@faadad0cce49287aee09b3a48701e75088a2c6ad # v4.0.0
 
-      - uses: containerbase/internal-tools/setup@b44956ac3ea16b98bf0838d51f0ca6a3f17e4a58 # v3.14.53
+      - uses: containerbase/internal-tools/setup@cf266a36ac247b4252860db20f554594213383c0 # v3.14.56
         with:
           checkout: false
           apt-proxy: true
