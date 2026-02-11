@@ -70,7 +70,7 @@ RUN install-tool hashin 1.0.5
 RUN install-tool pdm 2.26.6
 
 # renovate: datasource=pypi
-RUN install-tool pip-tools 7.5.2
+RUN install-tool pip-tools 7.5.3
 
 # renovate: datasource=pypi
 RUN install-tool pipenv 2026.0.3
