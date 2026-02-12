@@ -17,8 +17,8 @@ importers:
         specifier: 7.1.0
         version: 7.1.0(semantic-release@25.0.3)
       '@types/node':
-        specifier: 22.19.8
-        version: 22.19.8
+        specifier: 22.19.9
+        version: 22.19.9
       '@types/shelljs':
         specifier: 0.10.0
         version: 0.10.0
@@ -193,8 +193,8 @@ packages:
     resolution: {integrity: sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==}
     engines: {node: '>=18'}
 
-  '@types/node@22.19.8':
-    resolution: {integrity: sha512-ebO/Yl+EAvVe8DnMfi+iaAyIqYdK0q/q0y0rw82INWEKJOBe6b/P3YWE8NW7oOlF/nXFNrHwhARrN/hdgDkraA==}
+  '@types/node@22.19.9':
+    resolution: {integrity: sha512-PD03/U8g1F9T9MI+1OBisaIARhSzeidsUjQaf51fOxrfjeiKN9bLVO06lHuHYjxdnqLWJijJHfqXPSJri2EM2A==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -1696,7 +1696,7 @@ snapshots:
 
   '@sindresorhus/merge-streams@4.0.0': {}
 
-  '@types/node@22.19.8':
+  '@types/node@22.19.9':
     dependencies:
       undici-types: 6.21.0
 
@@ -1704,7 +1704,7 @@ snapshots:
 
   '@types/shelljs@0.10.0':
     dependencies:
-      '@types/node': 22.19.8
+      '@types/node': 22.19.9
       fast-glob: 3.3.3
 
   agent-base@7.1.4: {}
