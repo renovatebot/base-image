@@ -23,7 +23,7 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: containerbase/internal-tools/setup@5deae3a281a98870784309f9017eff5e54d2bf31 # v4.5.0
+      - uses: containerbase/internal-tools/setup@3eab235c19df00cd3c0975fecfc37ed179d0d6d2 # v4.5.1
         with:
           save-cache: true
 
@@ -34,7 +34,7 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: containerbase/internal-tools/setup@5deae3a281a98870784309f9017eff5e54d2bf31 # v4.5.0
+      - uses: containerbase/internal-tools/setup@3eab235c19df00cd3c0975fecfc37ed179d0d6d2 # v4.5.1
 
       - name: lint
         run: |
@@ -73,7 +73,7 @@ jobs:
           sudo systemctl restart docker
           docker info
 
-      - uses: containerbase/internal-tools/setup@5deae3a281a98870784309f9017eff5e54d2bf31 # v4.5.0
+      - uses: containerbase/internal-tools/setup@3eab235c19df00cd3c0975fecfc37ed179d0d6d2 # v4.5.1
         with:
           apt-proxy: true
 
