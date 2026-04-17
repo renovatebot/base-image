@@ -138,7 +138,7 @@ RUN install-tool yarn 4.13.0
 RUN install-tool dart 3.11.5
 
 # renovate: datasource=github-releases packageName=containerbase/flutter-prebuild
-RUN install-tool flutter 3.41.6
+RUN install-tool flutter 3.41.7
 
 # renovate: datasource=github-releases packageName=carvel-dev/vendir
 RUN install-tool vendir v0.45.3
