@@ -67,7 +67,7 @@ RUN install-tool copier 9.14.3
 RUN install-tool hashin 1.0.5
 
 # renovate: datasource=pypi
-RUN install-tool pdm 2.26.7
+RUN install-tool pdm 2.26.8
 
 # renovate: datasource=pypi
 RUN install-tool pip-tools 7.5.3
