@@ -58,7 +58,7 @@ RUN install-tool golang 1.26.2
 RUN install-tool python 3.14.4
 
 # renovate: datasource=pypi
-RUN install-tool conan 2.28.0
+RUN install-tool conan 2.28.1
 
 # renovate: datasource=pypi
 RUN install-tool copier 9.14.3
