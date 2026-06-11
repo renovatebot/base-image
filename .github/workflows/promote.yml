@@ -55,7 +55,7 @@ jobs:
           docker info
 
       - name: docker-config
-        uses: containerbase/internal-tools@48c73faf3c402a86025b22e5cf762fdc4c90a940 # v4.6.43
+        uses: containerbase/internal-tools@eac64dfa2e29bb6824cc0bf49508a98ee34bd2a6 # v4.6.44
         with:
           command: docker-config
 
@@ -68,7 +68,7 @@ jobs:
 
       - uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
 
-      - uses: containerbase/internal-tools/setup@48c73faf3c402a86025b22e5cf762fdc4c90a940 # v4.6.43
+      - uses: containerbase/internal-tools/setup@eac64dfa2e29bb6824cc0bf49508a98ee34bd2a6 # v4.6.44
         with:
           checkout: false
           apt-proxy: true
