@@ -61,7 +61,7 @@ RUN install-tool python 3.14.6
 RUN install-tool conan 2.29.1
 
 # renovate: datasource=pypi
-RUN install-tool copier 9.15.2
+RUN install-tool copier 9.16.0
 
 # renovate: datasource=pypi
 RUN install-tool hashin 1.0.5
