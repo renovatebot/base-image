@@ -12,10 +12,6 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image
 # install the prerequisites of all tools, so they can be installed at runtime without root
 RUN prepare-tool all
 
-
-# renovate: datasource=github-releases packageName=moby/moby
-RUN install-tool docker v28.5.2
-
 # --------------------------------------
 # slim image
 # --------------------------------------
