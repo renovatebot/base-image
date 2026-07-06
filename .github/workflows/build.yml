@@ -65,14 +65,14 @@ jobs:
     steps:
       - run: df -h
 
+      - uses: containerbase/internal-tools/setup@5dad87b46900facdce3bb06ca07c109e67c2604f # v4.6.69
+        with:
+          apt-proxy: true
+
       - uses: ./.github/actions/docker
 
       # allow build cross arch images
       - uses: docker/setup-qemu-action@96fe6ef7f33517b61c61be40b68a1882f3264fb8 # v4.2.0
-
-      - uses: containerbase/internal-tools/setup@5dad87b46900facdce3bb06ca07c109e67c2604f # v4.6.69
-        with:
-          apt-proxy: true
 
       - name: compute channel
         if: inputs.cache
