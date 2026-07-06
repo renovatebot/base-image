@@ -93,7 +93,7 @@ RUN install-tool ruby 4.0.5
 RUN install-tool bundler 4.0.15
 
 # renovate: datasource=rubygems
-RUN install-tool cocoapods 1.16.2
+RUN install-tool cocoapods 1.17.0
 
 
 # renovate: datasource=dotnet-version packageName=dotnet-sdk
