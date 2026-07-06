@@ -47,6 +47,9 @@ target "settings" {
     CONTAINERBASE_DEBUG = "${CONTAINERBASE_DEBUG}"
     BASE_IMAGE_VERSION  = "${BASE_IMAGE_VERSION}"
   }
+  extra-hosts = {
+    "host.docker.internal" = "host-gateway"
+  }
 }
 
 target "base" {
