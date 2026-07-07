@@ -144,7 +144,7 @@ RUN install-tool flutter 3.44.5
 RUN install-tool vendir v0.46.0
 
 # renovate: datasource=github-releases packageName=jdx/mise
-RUN install-tool mise v2026.7.0
+RUN install-tool mise v2026.7.1
 
 # --------------------------------------
 # final image
