@@ -15,7 +15,7 @@ importers:
     devDependencies:
       '@semantic-release/exec':
         specifier: 7.1.0
-        version: 7.1.0(semantic-release@25.0.8)
+        version: 7.1.0(semantic-release@25.0.9)
       '@types/node':
         specifier: 22.20.1
         version: 22.20.1
@@ -44,8 +44,8 @@ importers:
         specifier: 3.0.2
         version: 3.0.2(prettier@3.9.6)
       semantic-release:
-        specifier: 25.0.8
-        version: 25.0.8
+        specifier: 25.0.9
+        version: 25.0.9
       shelljs:
         specifier: 0.10.0
         version: 0.10.0
@@ -1138,8 +1138,8 @@ packages:
   safe-buffer@5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
 
-  semantic-release@25.0.8:
-    resolution: {integrity: sha512-w/iZ0bur36rKffXZYmIUmy068eoBY3Ij1DCCddx2JwWEM5Tg+eU9ld/E9qSInVvPASyyR2Ln/XGfQ9OZrMlhtw==}
+  semantic-release@25.0.9:
+    resolution: {integrity: sha512-bxve7csK0/Txr++CkfrmV+X1r4jqiSOw2WsSad9E2S68R+ZfLBwDn8IceM8WfiOmKQIHgsQc1cNA8Dzg7U75pg==}
     engines: {node: ^22.14.0 || >= 24.10.0}
     hasBin: true
 
@@ -1575,7 +1575,7 @@ snapshots:
 
   '@sec-ant/readable-stream@0.4.1': {}
 
-  '@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.8)':
+  '@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.9)':
     dependencies:
       conventional-changelog-angular: 8.3.1
       conventional-changelog-writer: 8.4.0
@@ -1585,13 +1585,13 @@ snapshots:
       import-from-esm: 2.0.0
       lodash-es: 4.18.1
       micromatch: 4.0.8
-      semantic-release: 25.0.8
+      semantic-release: 25.0.9
     transitivePeerDependencies:
       - supports-color
 
   '@semantic-release/error@4.0.0': {}
 
-  '@semantic-release/exec@7.1.0(semantic-release@25.0.8)':
+  '@semantic-release/exec@7.1.0(semantic-release@25.0.9)':
     dependencies:
       '@semantic-release/error': 4.0.0
       aggregate-error: 3.1.0
@@ -1599,11 +1599,11 @@ snapshots:
       execa: 9.6.1
       lodash-es: 4.18.1
       parse-json: 8.3.0
-      semantic-release: 25.0.8
+      semantic-release: 25.0.9
     transitivePeerDependencies:
       - supports-color
 
-  '@semantic-release/github@12.0.9(patch_hash=e14e17e7149b4300de2bae383230730a6ad96b38b919fe957c95aeb6044468ad)(semantic-release@25.0.8)':
+  '@semantic-release/github@12.0.9(patch_hash=e14e17e7149b4300de2bae383230730a6ad96b38b919fe957c95aeb6044468ad)(semantic-release@25.0.9)':
     dependencies:
       '@octokit/core': 7.0.7
       '@octokit/plugin-paginate-rest': 14.0.0(@octokit/core@7.0.7)
@@ -1619,7 +1619,7 @@ snapshots:
       lodash-es: 4.18.1
       mime: 4.1.0
       p-filter: 4.1.0
-      semantic-release: 25.0.8
+      semantic-release: 25.0.9
       tinyglobby: 0.2.17
       undici: 7.29.0
       url-join: 5.0.0
@@ -1627,7 +1627,7 @@ snapshots:
       - kerberos
       - supports-color
 
-  '@semantic-release/npm@13.1.5(semantic-release@25.0.8)':
+  '@semantic-release/npm@13.1.5(semantic-release@25.0.9)':
     dependencies:
       '@actions/core': 3.0.1
       '@semantic-release/error': 4.0.0
@@ -1642,11 +1642,11 @@ snapshots:
       rc: 1.2.8
       read-pkg: 10.1.0
       registry-auth-token: 5.1.1
-      semantic-release: 25.0.8
+      semantic-release: 25.0.9
       semver: 7.8.5
       tempy: 3.2.0
 
-  '@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.8)':
+  '@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9)':
     dependencies:
       conventional-changelog-angular: 8.3.1
       conventional-changelog-writer: 8.4.0
@@ -1656,7 +1656,7 @@ snapshots:
       import-from-esm: 2.0.0
       lodash-es: 4.18.1
       read-package-up: 11.0.0
-      semantic-release: 25.0.8
+      semantic-release: 25.0.9
     transitivePeerDependencies:
       - supports-color
 
@@ -2465,13 +2465,13 @@ snapshots:
 
   safe-buffer@5.1.2: {}
 
-  semantic-release@25.0.8:
+  semantic-release@25.0.9:
     dependencies:
-      '@semantic-release/commit-analyzer': 13.0.1(semantic-release@25.0.8)
+      '@semantic-release/commit-analyzer': 13.0.1(semantic-release@25.0.9)
       '@semantic-release/error': 4.0.0
-      '@semantic-release/github': 12.0.9(patch_hash=e14e17e7149b4300de2bae383230730a6ad96b38b919fe957c95aeb6044468ad)(semantic-release@25.0.8)
-      '@semantic-release/npm': 13.1.5(semantic-release@25.0.8)
-      '@semantic-release/release-notes-generator': 14.1.1(semantic-release@25.0.8)
+      '@semantic-release/github': 12.0.9(patch_hash=e14e17e7149b4300de2bae383230730a6ad96b38b919fe957c95aeb6044468ad)(semantic-release@25.0.9)
+      '@semantic-release/npm': 13.1.5(semantic-release@25.0.9)
+      '@semantic-release/release-notes-generator': 14.1.1(semantic-release@25.0.9)
       aggregate-error: 5.0.0
       cosmiconfig: 9.0.2
       debug: 4.4.3
