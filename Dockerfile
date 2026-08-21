@@ -30,7 +30,7 @@ ARG APT_HTTP_PROXY
 
 # linux x64 is usually released after aarch64
 # renovate: datasource=java-version packageName=java?os=linux&architecture=x64
-RUN install-tool java 25.0.4+7.0.LTS
+RUN install-tool java 25.0.4+101.0.LTS
 
 # renovate: datasource=gradle-version
 RUN install-tool gradle 9.7.1
