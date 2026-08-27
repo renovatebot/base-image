@@ -125,7 +125,7 @@ RUN install-tool bazelisk v1.29.0
 
 
 # renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
-RUN install-tool node 24.19.0
+RUN install-tool node 24.20.0
 
 # renovate: datasource=npm
 RUN install-tool pnpm 10.34.5
