@@ -61,7 +61,7 @@ jobs:
 
       - uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
 
-      - uses: containerbase/internal-tools/setup@70bd5cd7f16e02ea318f0b0c6b50c452b1a8add2 # v5.0.22
+      - uses: containerbase/internal-tools/setup@2df971648bb137b5e3d6628f0c3bed9f86479502 # v5.0.23
         with:
           checkout: false
           apt-proxy: true
