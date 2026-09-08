@@ -141,7 +141,7 @@ RUN install-tool dart 3.13.3
 RUN install-tool flutter 3.47.2
 
 # renovate: datasource=github-releases packageName=carvel-dev/vendir
-RUN install-tool vendir v0.46.1
+RUN install-tool vendir v0.46.2
 
 # renovate: datasource=github-releases packageName=jdx/mise
 RUN install-tool mise v2026.9.2
