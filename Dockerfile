@@ -79,7 +79,7 @@ RUN install-tool pipenv 2026.8.0
 RUN install-tool poetry 2.5.1
 
 # renovate: datasource=pypi
-RUN install-tool uv 0.12.18
+RUN install-tool uv 0.12.19
 
 
 # renovate: datasource=docker
