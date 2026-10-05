@@ -39,6 +39,7 @@ jobs:
       - name: lint
         run: |
           pnpm prettier
+          pnpm check:containerbase
 
   build:
     runs-on: ${{ matrix.arch.os }}
