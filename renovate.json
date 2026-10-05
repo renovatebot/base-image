@@ -13,20 +13,29 @@
       "additionalBranchPrefix": "ci-"
     },
     {
+      "description": "Update the containerbase image and npm package together, they must have the same version",
+      "matchPackageNames": [
+        "ghcr.io/containerbase/base",
+        "@containerbase/base"
+      ],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "groupName": "containerbase"
+    },
+    {
       "description": "Use `fix` semantic commit scope for docker image deps",
-      "matchFileNames": ["Dockerfile"],
+      "matchFileNames": ["Dockerfile", "packages/base-image/package.json"],
       "semanticCommitType": "fix",
       "additionalBranchPrefix": "deps-"
     },
     {
       "description": "Use `feat` semantic commit scope for docker image deps minor updates",
-      "matchFileNames": ["Dockerfile"],
+      "matchFileNames": ["Dockerfile", "packages/base-image/package.json"],
       "matchUpdateTypes": ["minor"],
       "semanticCommitType": "feat"
     },
     {
       "description": "Use `feat` semantic commit scope with breaking change for docker image deps major updates",
-      "matchFileNames": ["Dockerfile"],
+      "matchFileNames": ["Dockerfile", "packages/base-image/package.json"],
       "matchUpdateTypes": ["major"],
       "commitMessagePrefix": "feat(deps)!:",
       "addLabels": ["breaking"],
@@ -34,7 +43,7 @@
     },
     {
       "description": "Use `feat` semantic commit scope with breaking change for some minor updates",
-      "matchFileNames": ["Dockerfile"],
+      "matchFileNames": ["Dockerfile", "packages/base-image/package.json"],
       "matchUpdateTypes": ["minor"],
       "matchDepNames": ["php", "python", "ruby"],
       "commitMessagePrefix": "feat(deps)!:",
