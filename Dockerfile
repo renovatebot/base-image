@@ -1,9 +1,6 @@
 ARG BASE_IMAGE_TYPE=slim
 
-FROM ghcr.io/containerbase/sidecar:14.25.1@sha256:16c355ffd0efac161858b4fca2270474ec3cb83a3f20766cfa154adf9a228134 AS base
-
-# sidecar defaults to 1000
-USER root
+FROM ghcr.io/containerbase/base:14.25.1@sha256:d726ebe68a17efc4b0232453dade0f4b74c973ae438164336fc1b9894914e819 AS base
 
 ARG APT_HTTP_PROXY
 
@@ -11,6 +8,9 @@ LABEL name="renovate/base-image"
 LABEL org.opencontainers.image.source="https://github.com/renovatebot/base-image" \
   org.opencontainers.image.url="https://renovatebot.com" \
   org.opencontainers.image.licenses="MIT"
+
+# install the prerequisites of all tools, so they can be installed at runtime without root
+RUN prepare-tool all
 
 
 # renovate: datasource=github-releases packageName=moby/moby

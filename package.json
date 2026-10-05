@@ -1,5 +1,5 @@
 {
-  "name": "@renovatebot/base-image",
+  "name": "renovate-base-image",
   "version": "0.0.0-semantic-release",
   "private": true,
   "repository": {
@@ -14,7 +14,8 @@
   ],
   "type": "module",
   "scripts": {
-    "lint": "run-s prettier",
+    "check:containerbase": "node tools/check-containerbase.js",
+    "lint": "run-s prettier check:containerbase",
     "prepare": "husky",
     "prettier": "prettier --cache --check --ignore-unknown '**/*.*'",
     "prettier-fix": "prettier --cache --write --ignore-unknown '**/*.*'",
@@ -22,6 +23,7 @@
     "release:publish": "node tools/publish-release.js"
   },
   "devDependencies": {
+    "@containerbase/semantic-release-pnpm": "1.4.3",
     "@semantic-release/exec": "7.1.0",
     "@types/node": "22.20.4",
     "@types/shelljs": "0.10.0",
