@@ -4,6 +4,7 @@ Metadata about the tools supported by the [Renovate base image](https://github.c
 
 The package is released together with the `ghcr.io/renovatebot/base-image` image and has the same version.
 It re-exports [`@containerbase/base`](https://www.npmjs.com/package/@containerbase/base) at the Containerbase version the image is built from, so the tool list matches the tools that can be installed in that image.
+Tools marked `root: true` can only be installed as root, so only when building an image on top of it.
 
 ```ts
 import { tools, type ToolName } from '@renovatebot/base-image';
