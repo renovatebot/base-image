@@ -1,5 +1,2 @@
 packages:
   - packages/*
-
-patchedDependencies:
-  '@semantic-release/github': patches/@semantic-release__github.patch
