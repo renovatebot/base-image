@@ -141,7 +141,7 @@ RUN install-tool dart 3.10.8
 RUN install-tool flutter 3.38.7
 
 # renovate: datasource=github-releases packageName=carvel-dev/vendir
-RUN install-tool vendir v0.45.0
+RUN install-tool vendir v0.46.2
 
 # --------------------------------------
 # final image
