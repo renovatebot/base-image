@@ -8,7 +8,7 @@ on:
 jobs:
   review:
     if: github.event.action == 'opened' && !endsWith(github.event.pull_request.user.login, '[bot]')
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       pull-requests: write
     steps:
