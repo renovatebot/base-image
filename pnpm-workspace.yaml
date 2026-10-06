@@ -1,2 +1,11 @@
 packages:
   - packages/*
+
+# in line with https://github.com/renovatebot/.github/blob/main/default.json,
+# all non-Renovate or non-Containerbase packages should only be installed after
+# 7 days
+minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  # updated together with the containerbase image right after its release
+  - '@containerbase/base'
+  - '@containerbase/semantic-release-pnpm'
