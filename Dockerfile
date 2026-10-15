@@ -101,7 +101,7 @@ RUN install-tool dotnet 10.0.402
 
 
 # renovate: datasource=github-releases packageName=helm/helm
-RUN install-tool helm v4.3.0
+RUN install-tool helm v4.3.1
 
 
 # renovate: datasource=github-releases packageName=jsonnet-bundler/jsonnet-bundler
