@@ -209,8 +209,8 @@ importers:
   packages/base-image:
     dependencies:
       '@containerbase/base':
-        specifier: 14.42.0
-        version: 14.42.0(zod@4.6.6)
+        specifier: 14.43.0
+        version: 14.43.0(zod@4.6.6)
       zod:
         specifier: ^4.0.0
         version: 4.6.6
@@ -241,8 +241,8 @@ packages:
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
 
-  '@containerbase/base@14.42.0':
-    resolution: {integrity: sha512-A/cuXB+Jn4epMMeEoT+At+E7dGPNVQxEgnC9aEJfwoGSSUCkJ9RltsmWW6ub2aWVoFrBfDCDtw4cgr81Uf0Qog==}
+  '@containerbase/base@14.43.0':
+    resolution: {integrity: sha512-qE+c8P0m0oltChDeTU+YNra31KT5EX022xrH3V5aNKGEF+MGMSqAkcwaQaDHazlkQEH0smtSE112PomOu0xokg==}
     engines: {node: '>=24.10.0'}
     peerDependencies:
       zod: ^4.0.0
@@ -1666,7 +1666,7 @@ snapshots:
   '@colors/colors@1.5.0':
     optional: true
 
-  '@containerbase/base@14.42.0(zod@4.6.6)':
+  '@containerbase/base@14.43.0(zod@4.6.6)':
     optionalDependencies:
       zod: 4.6.6
 
