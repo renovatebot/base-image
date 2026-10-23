@@ -104,8 +104,8 @@ RUN install-tool dotnet 10.0.402
 RUN install-tool helm v4.3.1
 
 
-# renovate: datasource=github-releases packageName=jsonnet-bundler/jsonnet-bundler
-RUN install-tool jb v0.6.0
+# renovate: datasource=github-releases packageName=containerbase/jb-prebuild versioning=loose
+RUN install-tool jb 0.6.0.1
 
 
 # renovate: datasource=npm
