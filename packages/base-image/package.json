@@ -33,7 +33,7 @@
     "zod.js"
   ],
   "dependencies": {
-    "@containerbase/base": "14.52.6"
+    "@containerbase/base": "14.52.7"
   },
   "peerDependencies": {
     "zod": "^4.0.0"
