@@ -51,6 +51,12 @@
       "automerge": false
     },
     {
+      "description": "Separate the breaking minor updates, so patch updates of the current minor aren't held back",
+      "matchFileNames": ["Dockerfile", "packages/base-image/package.json"],
+      "matchDepNames": ["php", "python", "ruby"],
+      "separateMultipleMinor": true
+    },
+    {
       "description": "Require approval for major updates for `maint` branches",
       "matchBaseBranches": ["/^maint/.+/"],
       "matchUpdateTypes": ["major"],
