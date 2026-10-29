@@ -10,13 +10,7 @@
         "successCommentCondition": "<% return issue.user.type !== 'Bot'; %>"
       }
     ],
-    [
-      "@semantic-release/exec",
-      {
-        "prepareCmd": "pnpm release:prepare --release=${nextRelease.version} --channel='${branch.channel ?? ''}' --sha=${nextRelease.gitHead}",
-        "publishCmd": "pnpm release:publish --release=${nextRelease.version} --channel='${branch.channel ?? ''}' --sha=${nextRelease.gitHead}"
-      }
-    ],
+    "./tools/semantic-release-plugin.js",
     "@containerbase/semantic-release-pnpm"
   ],
   "analyzeCommits": {
