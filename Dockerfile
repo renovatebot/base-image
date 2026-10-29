@@ -40,7 +40,7 @@ RUN install-tool gradle 9.8.2
 RUN install-tool erlang 28.5.0.8
 
 # renovate: datasource=github-releases packageName=elixir-lang/elixir
-RUN install-tool elixir v1.20.4
+RUN install-tool elixir v1.20.5
 
 
 # renovate: datasource=github-releases packageName=containerbase/php-prebuild
