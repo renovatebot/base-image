@@ -18,24 +18,19 @@
     "lint": "run-s prettier check:containerbase",
     "prepare": "husky",
     "prettier": "prettier --cache --check --ignore-unknown '**/*.*'",
-    "prettier-fix": "prettier --cache --write --ignore-unknown '**/*.*'",
-    "release:prepare": "node tools/prepare-release.js",
-    "release:publish": "node tools/publish-release.js"
+    "prettier-fix": "prettier --cache --write --ignore-unknown '**/*.*'"
   },
   "devDependencies": {
     "@containerbase/semantic-release-pnpm": "1.4.3",
-    "@semantic-release/exec": "7.1.0",
     "@types/node": "24.19.2",
-    "@types/shelljs": "0.10.0",
-    "clipanion": "4.0.0-rc.4",
     "conventional-changelog-conventionalcommits": "9.3.1",
+    "execa": "9.6.1",
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
     "npm-run-all2": "9.0.4",
     "prettier": "3.9.10",
     "prettier-plugin-packagejson": "3.0.2",
-    "semantic-release": "25.0.9",
-    "shelljs": "0.10.0"
+    "semantic-release": "25.0.9"
   },
   "packageManager": "pnpm@12.15.0",
   "engines": {
