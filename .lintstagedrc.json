@@ -1,5 +1,6 @@
 {
   "*.sh": "shellcheck",
   ".husky/*": "shellcheck",
+  ".github/workflows/*.{yml,yaml}": ["jactionlint", "zizmor --offline"],
   "*": "prettier --cache --ignore-unknown --write"
 }
