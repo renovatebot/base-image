@@ -26,7 +26,7 @@ env:
 
 jobs:
   build:
-    uses: ./.github/workflows/build.yml
+    uses: $/.github/workflows/build.yml
     permissions:
       contents: read
       packages: write
@@ -50,14 +50,15 @@ jobs:
     steps:
       - run: df -h
 
-      # full checkout for semantic-release
+      # full checkout for semantic-release, which pushes with its own token
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          persist-credentials: false
           show-progress: false
           fetch-depth: 0
           filter: blob:none
 
-      - uses: ./.github/actions/docker
+      - uses: $/.github/actions/docker
 
       # allow build cross arch images
       - uses: docker/setup-qemu-action@99012661954931238ded8c8b007157a8430204e1 # v4.4.0
@@ -71,18 +72,22 @@ jobs:
 
       - name: init
         run: |
-          echo "OWNER=${OWNER,,}" >> ${GITHUB_ENV}
+          echo "OWNER=${OWNER,,}" >> "${GITHUB_ENV}"
 
       - name: Docker registry login
         if: env.DRY_RUN != 'true'
         run: |
-          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+          echo "${GITHUB_TOKEN}" | docker login ghcr.io -u "${REPOSITORY_OWNER}" --password-stdin
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
 
       - name: semantic-release
         id: release
         if: github.event_name == 'push'
-        run: pnpm semantic-release --dry-run ${{env.DRY_RUN}} --ci ${{env.DRY_RUN != 'true'}}
+        run: pnpm semantic-release --dry-run "${DRY_RUN}" --ci "${CI_MODE}"
         env:
+          CI_MODE: ${{ env.DRY_RUN != 'true' }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # a failed attestation shows as an error but doesn't fail the release

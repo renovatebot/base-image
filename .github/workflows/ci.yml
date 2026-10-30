@@ -18,7 +18,7 @@ permissions:
 jobs:
   build:
     if: ${{ github.repository_owner != github.event.pull_request.head.repo.owner.login }}
-    uses: ./.github/workflows/build.yml
+    uses: $/.github/workflows/build.yml
     permissions:
       contents: read
       packages: write
