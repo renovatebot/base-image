@@ -42,7 +42,7 @@ jobs:
 
       - name: lint
         run: |
-          pnpm prettier
+          pnpm oxfmt
           pnpm check:containerbase
 
       - name: Install the workflow linters

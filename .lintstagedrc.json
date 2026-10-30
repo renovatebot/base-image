@@ -2,5 +2,5 @@
   "*.sh": "shellcheck",
   ".husky/*": "shellcheck",
   ".github/workflows/*.{yml,yaml}": ["jactionlint", "zizmor --offline"],
-  "*": "prettier --cache --ignore-unknown --write"
+  "*": "oxfmt --no-error-on-unmatched-pattern"
 }

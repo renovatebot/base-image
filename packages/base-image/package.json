@@ -3,17 +3,23 @@
   "version": "0.0.0-semantic-release",
   "description": "Metadata about the tools supported by the Renovate base image",
   "keywords": [
-    "renovate",
     "containerbase",
+    "renovate",
     "tools"
   ],
   "homepage": "https://github.com/renovatebot/base-image#readme",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/renovatebot/base-image.git",
     "directory": "packages/base-image"
   },
-  "license": "MIT",
+  "files": [
+    "index.d.ts",
+    "index.js",
+    "zod.d.ts",
+    "zod.js"
+  ],
   "type": "module",
   "exports": {
     ".": {
@@ -26,12 +32,10 @@
     },
     "./package.json": "./package.json"
   },
-  "files": [
-    "index.d.ts",
-    "index.js",
-    "zod.d.ts",
-    "zod.js"
-  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "dependencies": {
     "@containerbase/base": "14.58.0"
   },
@@ -45,9 +49,5 @@
   },
   "engines": {
     "node": ">=24.10.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
   }
 }

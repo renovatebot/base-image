@@ -2,23 +2,23 @@
   "name": "renovate-base-image",
   "version": "0.0.0-semantic-release",
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/renovatebot/base-image.git"
-  },
   "license": "MIT",
   "author": "Rhys Arkins <rhys@arkins.net>",
   "contributors": [
     "Michael Kriese <michael.kriese@visualon.de>",
     "Liora Milbaum <liora@lmb.co.il>"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/renovatebot/base-image.git"
+  },
   "type": "module",
   "scripts": {
     "check:containerbase": "node tools/check-containerbase.js",
-    "lint": "run-s prettier check:containerbase",
-    "prepare": "husky",
-    "prettier": "prettier --cache --check --ignore-unknown '**/*.*'",
-    "prettier-fix": "prettier --cache --write --ignore-unknown '**/*.*'"
+    "lint": "run-s oxfmt check:containerbase",
+    "oxfmt": "oxfmt --check",
+    "oxfmt-fix": "oxfmt",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@containerbase/semantic-release-pnpm": "1.4.4",
@@ -28,13 +28,12 @@
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
     "npm-run-all2": "9.0.4",
-    "prettier": "3.9.10",
-    "prettier-plugin-packagejson": "3.0.2",
+    "oxfmt": "0.74.0",
     "semantic-release": "25.0.9"
   },
-  "packageManager": "pnpm@12.15.0",
   "engines": {
     "node": ">=24.10.0",
     "pnpm": "^12.0.0"
-  }
+  },
+  "packageManager": "pnpm@12.15.0"
 }

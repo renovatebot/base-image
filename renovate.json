@@ -1,9 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>renovatebot/.github",
-    "github>renovatebot/.github//merge-queue.json"
-  ],
+  "extends": ["github>renovatebot/.github", "github>renovatebot/.github//merge-queue.json"],
   "baseBranchPatterns": ["$default", "/^disable-next$/"],
   "packageRules": [
     {
@@ -14,10 +11,7 @@
     },
     {
       "description": "Update the containerbase image and npm package together, they must have the same version",
-      "matchPackageNames": [
-        "ghcr.io/containerbase/base",
-        "@containerbase/base"
-      ],
+      "matchPackageNames": ["ghcr.io/containerbase/base", "@containerbase/base"],
       "matchUpdateTypes": ["major", "minor", "patch"],
       "groupName": "containerbase"
     },
