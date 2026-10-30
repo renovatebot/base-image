@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
+import { setTimeout } from 'node:timers/promises';
 import { execa } from 'execa';
 
 /** @typedef {import('semantic-release').PrepareContext} PrepareContext */
@@ -44,6 +45,12 @@ async function exec(file, args) {
 
 /** Platforms of the release images. */
 const platforms = '--set=settings.platform=linux/amd64,linux/arm64';
+
+/** Signing attempts per image, transient sigstore or registry errors pass on a retry. */
+const signAttempts = 3;
+
+/** Delay between signing attempts in milliseconds. */
+const signDelay = 10_000;
 
 /**
  * Sets the env the docker bake file reads for the release.
@@ -105,13 +112,46 @@ export async function publish(_config, context) {
   const meta = JSON.parse(await fs.readFile(metadataFile, 'utf8'));
   const image = `ghcr.io/${process.env.OWNER}/${process.env.FILE}`;
   images = [];
-  for (const target of ['push-slim', 'push-full']) {
-    const digest = meta?.[target]?.['containerimage.digest'];
+  for (const variant of ['slim', 'full']) {
+    const digest = meta?.[`push-${variant}`]?.['containerimage.digest'];
     if (!digest) {
       logger.error(`Bake metadata:\n${JSON.stringify(meta, null, 2)}`);
-      throw releaseError(`Missing image digest for ${target}`);
+      throw releaseError(`Missing image digest for push-${variant}`);
     }
     images.push(`${image}@${digest}`);
+
+    // the workflow attests the images with these digests
+    if (process.env.GITHUB_OUTPUT) {
+      await fs.appendFile(
+        process.env.GITHUB_OUTPUT,
+        `${variant}-digest=${digest}\n`,
+      );
+    }
+  }
+}
+
+/**
+ * Signs an image, retrying failed attempts. When all attempts fail it reports
+ * a GitHub Actions error annotation instead of failing the release.
+ * @param {SuccessContext['logger']} logger
+ * @param {string} image
+ */
+async function sign(logger, image) {
+  for (let attempt = 1; ; attempt++) {
+    const result = await run('cosign', ['sign', '--yes', image]);
+    if (!result.failed) {
+      return;
+    }
+    if (attempt >= signAttempts) {
+      logger.error(result.shortMessage);
+      process.stdout.write(
+        // an annotation ends at the first newline
+        `::error title=Image signing failed::${result.shortMessage.split('\n')[0]}\n`,
+      );
+      return;
+    }
+    logger.log(`Signing ${image} failed, retrying in ${signDelay / 1000}s`);
+    await setTimeout(signDelay);
   }
 }
 
@@ -123,13 +163,6 @@ export async function publish(_config, context) {
  */
 export async function success(_config, { logger }) {
   for (const image of images) {
-    const result = await run('cosign', ['sign', '--yes', image]);
-    if (result.failed) {
-      logger.error(result.shortMessage);
-      process.stdout.write(
-        // an annotation ends at the first newline
-        `::error title=Image signing failed::${result.shortMessage.split('\n')[0]}\n`,
-      );
-    }
+    await sign(logger, image);
   }
 }
