@@ -100,14 +100,7 @@ export async function publish(_config, context) {
   const metadataFile = path.join(tmp, 'metadata.json');
 
   logger.log('Pushing docker images');
-  await exec('docker', [
-    'buildx',
-    'bake',
-    platforms,
-    '--metadata-file',
-    metadataFile,
-    'push',
-  ]);
+  await exec('docker', ['buildx', 'bake', platforms, '--metadata-file', metadataFile, 'push']);
 
   const meta = JSON.parse(await fs.readFile(metadataFile, 'utf8'));
   const image = `ghcr.io/${process.env.OWNER}/${process.env.FILE}`;
@@ -122,10 +115,7 @@ export async function publish(_config, context) {
 
     // the workflow attests the images with these digests
     if (process.env.GITHUB_OUTPUT) {
-      await fs.appendFile(
-        process.env.GITHUB_OUTPUT,
-        `${variant}-digest=${digest}\n`,
-      );
+      await fs.appendFile(process.env.GITHUB_OUTPUT, `${variant}-digest=${digest}\n`);
     }
   }
 }

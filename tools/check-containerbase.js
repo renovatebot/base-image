@@ -2,13 +2,9 @@ import { readFile } from 'node:fs/promises';
 
 // keep the `@containerbase/base` npm dependency on the image's containerbase version
 const dockerfile = await readFile('Dockerfile', 'utf8');
-const pkg = JSON.parse(
-  await readFile('packages/base-image/package.json', 'utf8'),
-);
+const pkg = JSON.parse(await readFile('packages/base-image/package.json', 'utf8'));
 
-const image = /^FROM ghcr\.io\/containerbase\/base:(\S+?)(?:@\S+)?\s/m.exec(
-  dockerfile,
-)?.[1];
+const image = /^FROM ghcr\.io\/containerbase\/base:(\S+?)(?:@\S+)?\s/m.exec(dockerfile)?.[1];
 const dep = pkg.dependencies['@containerbase/base'];
 
 if (!image) {
@@ -17,9 +13,7 @@ if (!image) {
 }
 
 if (image !== dep) {
-  console.error(
-    `@containerbase/base ${dep} doesn't match the containerbase image ${image}`,
-  );
+  console.error(`@containerbase/base ${dep} doesn't match the containerbase image ${image}`);
   process.exit(1);
 }
 
