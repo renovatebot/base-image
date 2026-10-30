@@ -167,8 +167,8 @@ importers:
   .:
     devDependencies:
       '@containerbase/semantic-release-pnpm':
-        specifier: 1.4.3
-        version: 1.4.3(semantic-release@25.0.9(supports-color@7.2.0))
+        specifier: 1.4.4
+        version: 1.4.4(semantic-release@25.0.9(supports-color@7.2.0))
       '@types/node':
         specifier: 24.19.2
         version: 24.19.2
@@ -241,8 +241,8 @@ packages:
       zod:
         optional: true
 
-  '@containerbase/semantic-release-pnpm@1.4.3':
-    resolution: {integrity: sha512-dOMyBw+mzcKHt6OqYyRj6arFeszoINlNRq1eIR7oEE0TB0i0lhj8BsJ/2IFISJUPwf9lUxKbV8ES6vjqqMIQYg==}
+  '@containerbase/semantic-release-pnpm@1.4.4':
+    resolution: {integrity: sha512-Jpph9T1Kjy7GdfeqAYETkmGr5MKg82rg2FMoQ5JQ7y65Rv8RQmmaVIQtOPoxwwEykugV9Axzvj0V9hU2f0hwfw==}
     engines: {node: ^22.11.0 || ^24}
     peerDependencies:
       semantic-release: ^24.0.0 || ^25.0.0
@@ -1554,11 +1554,12 @@ snapshots:
     optionalDependencies:
       zod: 4.6.7
 
-  '@containerbase/semantic-release-pnpm@1.4.3(semantic-release@25.0.9(supports-color@7.2.0))':
+  '@containerbase/semantic-release-pnpm@1.4.4(semantic-release@25.0.9(supports-color@7.2.0))':
     dependencies:
       '@semantic-release/error': 4.0.0
       aggregate-error: 5.1.0
       execa: 9.6.1
+      read-pkg: 10.1.0
       semantic-release: 25.0.9(supports-color@7.2.0)
       semver: 7.8.5
 
