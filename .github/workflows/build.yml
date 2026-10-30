@@ -70,7 +70,7 @@ jobs:
         with:
           apt-proxy: true
 
-      - uses: ./.github/actions/docker
+      - uses: $/.github/actions/docker
 
       # allow build cross arch images
       - uses: docker/setup-qemu-action@99012661954931238ded8c8b007157a8430204e1 # v4.4.0
@@ -78,12 +78,13 @@ jobs:
       - name: compute channel
         if: inputs.cache
         run: |
-          if [[ "${{github.ref_name}}" == "next" ]]; then
-            echo "CHANNEL=${{github.ref_name}}" >> "$GITHUB_ENV"
-          elif [[ "${{startsWith(github.ref_name, 'maint/')}}" == "true" ]]; then
-            ref="${{github.ref_name}}"
-            echo "CHANNEL=${ref:6}" >> "$GITHUB_ENV"
+          if [[ "${REF_NAME}" == "next" ]]; then
+            echo "CHANNEL=${REF_NAME}" >> "$GITHUB_ENV"
+          elif [[ "${REF_NAME}" == maint/* ]]; then
+            echo "CHANNEL=${REF_NAME:6}" >> "$GITHUB_ENV"
           fi
+        env:
+          REF_NAME: ${{ github.ref_name }}
 
       - name: build image
         run: docker buildx bake
