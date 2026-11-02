@@ -14,7 +14,7 @@ RUN prepare-tool all
 
 
 # renovate: datasource=github-releases packageName=moby/moby
-RUN install-tool docker v28.5.2
+RUN install-tool docker v29.9.2
 
 # --------------------------------------
 # slim image
