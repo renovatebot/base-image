@@ -36,7 +36,7 @@ RUN install-tool java 25.0.5+8.0.LTS
 RUN install-tool gradle 9.9.1
 
 
-# renovate: datasource=github-releases packageName=containerbase/erlang-prebuild versioning=docker
+# renovate: datasource=github-releases packageName=containerbase/erlang-prebuild versioning=semver-extended
 RUN install-tool erlang 28.5.0.8
 
 # renovate: datasource=github-releases packageName=elixir-lang/elixir
@@ -104,7 +104,7 @@ RUN install-tool dotnet 10.0.404
 RUN install-tool helm v4.3.1
 
 
-# renovate: datasource=github-releases packageName=containerbase/jb-prebuild versioning=loose
+# renovate: datasource=github-releases packageName=containerbase/jb-prebuild versioning=semver-extended
 RUN install-tool jb 0.6.0.1
 
 
