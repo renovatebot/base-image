@@ -37,7 +37,7 @@
     "provenance": true
   },
   "dependencies": {
-    "@containerbase/base": "14.66.24"
+    "@containerbase/base": "14.66.25"
   },
   "peerDependencies": {
     "zod": "^4.0.0"
