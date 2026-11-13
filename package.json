@@ -28,7 +28,7 @@
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
     "npm-run-all2": "9.0.4",
-    "oxfmt": "0.76.0",
+    "oxfmt": "0.77.0",
     "semantic-release": "25.0.9"
   },
   "engines": {
