@@ -101,7 +101,7 @@ RUN install-tool dotnet 10.0.404
 
 
 # renovate: datasource=github-releases packageName=helm/helm
-RUN install-tool helm v4.3.1
+RUN install-tool helm v4.3.2
 
 
 # renovate: datasource=github-releases packageName=containerbase/jb-prebuild versioning=semver-extended
