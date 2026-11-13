@@ -1,6 +1,6 @@
 ARG BASE_IMAGE_TYPE=slim
 
-FROM ghcr.io/containerbase/base:14.66.24@sha256:9d6ab87e0a25f7925ff8e5c262043a1907f2847f9c561372b9d9a9eca6bad843 AS base
+FROM ghcr.io/containerbase/base:14.66.25@sha256:f4ec8a2ec66b6098b5b2fc8411043182d767584534977576524779def24c38ca AS base
 
 ARG APT_HTTP_PROXY
 
