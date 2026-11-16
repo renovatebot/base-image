@@ -105,7 +105,7 @@ RUN install-tool helm v4.3.2
 
 
 # renovate: datasource=github-releases packageName=containerbase/jb-prebuild versioning=semver-extended
-RUN install-tool jb 0.6.0.1
+RUN install-tool jb 0.6.0.2
 
 
 # renovate: datasource=npm
