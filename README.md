@@ -4,6 +4,8 @@ This repository is the base image for our [`renovatebot/renovate` Docker images]
 
 It is built from [`ghcr.io/containerbase/base`](https://github.com/containerbase/base) and runs `prepare-tool all`, so all Containerbase tools except the root-only ones (`root: true`) can be installed at runtime without root.
 
+Each [release](https://github.com/renovatebot/base-image/releases) lists the tools installed in the `slim` and `full` images in its notes, and attaches the `containerbase-cli list tools --json` output of each image as `tools-slim.json` and `tools-full.json`.
+
 ## npm package
 
 Each release also publishes the [`@renovatebot/base-image`](./packages/base-image/) npm package with the same version.

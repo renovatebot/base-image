@@ -143,6 +143,17 @@ RUN install-tool vendir v0.47.0
 RUN install-tool mise v2026.11.14
 
 # --------------------------------------
+# installed tools, exported for the release notes and assets
+# --------------------------------------
+FROM ${BASE_IMAGE_TYPE}-base AS tools-list
+
+RUN containerbase-cli list tools --json --out /tmp/tools.json
+
+FROM scratch AS tools
+
+COPY --from=tools-list /tmp/tools.json /
+
+# --------------------------------------
 # final image
 # --------------------------------------
 FROM ${BASE_IMAGE_TYPE}-base

@@ -5,7 +5,10 @@
     [
       "@semantic-release/github",
       {
-        "assets": [],
+        "assets": [
+          { "path": "dist/slim/tools.json", "name": "tools-slim.json" },
+          { "path": "dist/full/tools.json", "name": "tools-full.json" }
+        ],
         "releasedLabels": false,
         "successCommentCondition": "<% return issue.user.type !== 'Bot'; %>"
       }
