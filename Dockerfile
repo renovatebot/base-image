@@ -117,7 +117,7 @@ RUN install-tool devbox 0.23.0
 
 
 # renovate: datasource=github-releases packageName=bazelbuild/bazelisk
-RUN install-tool bazelisk v1.30.0
+RUN install-tool bazelisk v1.31.0
 
 
 # renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
