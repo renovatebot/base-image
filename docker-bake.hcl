@@ -114,6 +114,16 @@ target "push-full" {
   inherits = ["build-full", "publish"]
 }
 
+target "tools" {
+  name = "tools-${tgt}"
+  matrix = {
+    tgt = ["slim", "full"]
+  }
+  inherits = ["base-${tgt}"]
+  target = "tools"
+  output = ["type=local,dest=dist/${tgt}"]
+}
+
 target "build-cache" {
   name = "ttl-${tgt}"
   matrix = {

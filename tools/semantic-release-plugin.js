@@ -4,6 +4,7 @@ import path from 'node:path';
 import { setTimeout } from 'node:timers/promises';
 import { execa } from 'execa';
 
+/** @typedef {import('semantic-release').GenerateNotesContext} GenerateNotesContext */
 /** @typedef {import('semantic-release').PrepareContext} PrepareContext */
 /** @typedef {import('semantic-release').PublishContext} PublishContext */
 /** @typedef {import('semantic-release').SuccessContext} SuccessContext */
@@ -54,7 +55,7 @@ const signDelay = 10_000;
 
 /**
  * Sets the env the docker bake file reads for the release.
- * @param {PrepareContext} context
+ * @param {GenerateNotesContext | PrepareContext} context
  */
 function setReleaseEnv({ branch, nextRelease }) {
   process.env.TAG = nextRelease.version;
@@ -63,6 +64,54 @@ function setReleaseEnv({ branch, nextRelease }) {
   if (branch.channel) {
     process.env.CHANNEL = branch.channel.replace('maint/', '');
   }
+}
+
+/**
+ * Lists the installed tools of each image variant. The bake `tools` target
+ * writes the `containerbase-cli list tools --json` output to
+ * `dist/<variant>/tools.json`, which the GitHub plugin attaches to the release.
+ * @param {unknown} _config
+ * @param {GenerateNotesContext} context
+ */
+export async function generateNotes(_config, context) {
+  const { logger, nextRelease } = context;
+
+  // semantic-release also generates notes when it adds an older release to a
+  // channel, the checkout then doesn't match that release
+  const { stdout: head } = await execa('git', ['rev-parse', 'HEAD']);
+  if (head !== nextRelease.gitHead) {
+    logger.log(`Skip listing the tools of ${nextRelease.gitHead}, it isn't checked out`);
+    return '';
+  }
+  setReleaseEnv(context);
+
+  logger.log('Listing the image tools');
+  await exec('docker', ['buildx', 'bake', 'tools']);
+
+  const notes = [
+    '### Installed tools',
+    '',
+    'The `tools-slim.json` and `tools-full.json` assets have the `containerbase-cli list tools --json` output of each image.',
+    'Other Containerbase tools can be installed at runtime with `install-tool`.',
+  ];
+  for (const variant of ['slim', 'full']) {
+    /** @type {{ tools: { name: string, version: string }[] }} */
+    const list = JSON.parse(await fs.readFile(`dist/${variant}/tools.json`, 'utf8'));
+    notes.push(
+      '',
+      '<details>',
+      `<summary>Tools in the <code>${variant}</code> image</summary>`,
+      '',
+      '| Tool | Version |',
+      '| --- | --- |',
+      ...list.tools
+        .toSorted((a, b) => a.name.localeCompare(b.name))
+        .map(({ name, version }) => `| ${name} | ${version} |`),
+      '',
+      '</details>',
+    );
+  }
+  return notes.join('\n');
 }
 
 /**

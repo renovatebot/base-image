@@ -106,6 +106,12 @@ jobs:
       - name: build image
         run: docker buildx bake
 
+      # the release notes and assets list these tools
+      - name: list tools
+        run: |
+          docker buildx bake tools
+          cat dist/slim/tools.json dist/full/tools.json
+
       - name: Docker registry login
         if: inputs.cache
         run: |
