@@ -29,7 +29,7 @@ ARG APT_HTTP_PROXY
 RUN install-tool java 25.0.5+100000002.0.LTS
 
 # renovate: datasource=gradle-version
-RUN install-tool gradle 9.9.2
+RUN install-tool gradle 9.9.3
 
 
 # renovate: datasource=github-releases packageName=containerbase/erlang-prebuild versioning=semver-extended
