@@ -88,32 +88,30 @@ export async function generateNotes(_config, context) {
   logger.log('Listing the image tools');
   await exec('docker', ['buildx', 'bake', 'tools']);
 
-  /** @type {Record<string, { slim?: string, full?: string }>} */
-  const tools = {};
-  for (const variant of /** @type {const} */ (['slim', 'full'])) {
-    const list = JSON.parse(await fs.readFile(`dist/${variant}/tools.json`, 'utf8'));
-    for (const { name, version } of list.tools) {
-      tools[name] = { ...tools[name], [variant]: version };
-    }
-  }
-
-  return [
+  const notes = [
     '### Installed tools',
     '',
     'The `tools-slim.json` and `tools-full.json` assets have the `containerbase-cli list tools --json` output of each image.',
     'Other Containerbase tools can be installed at runtime with `install-tool`.',
-    '',
-    '<details>',
-    '<summary>Tools and their versions</summary>',
-    '',
-    '| Tool | slim | full |',
-    '| --- | --- | --- |',
-    ...Object.keys(tools)
-      .sort()
-      .map((name) => `| ${name} | ${tools[name].slim ?? ''} | ${tools[name].full ?? ''} |`),
-    '',
-    '</details>',
-  ].join('\n');
+  ];
+  for (const variant of ['slim', 'full']) {
+    /** @type {{ tools: { name: string, version: string }[] }} */
+    const list = JSON.parse(await fs.readFile(`dist/${variant}/tools.json`, 'utf8'));
+    notes.push(
+      '',
+      '<details>',
+      `<summary>Tools in the <code>${variant}</code> image</summary>`,
+      '',
+      '| Tool | Version |',
+      '| --- | --- |',
+      ...list.tools
+        .toSorted((a, b) => a.name.localeCompare(b.name))
+        .map(({ name, version }) => `| ${name} | ${version} |`),
+      '',
+      '</details>',
+    );
+  }
+  return notes.join('\n');
 }
 
 /**
